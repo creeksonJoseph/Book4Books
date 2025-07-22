@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-//import AddBook from "./Pages/AddBook";
-import Requests from "./Pages/Requests";
+import AddBook from "./pages/AddBook";
+// import Requests from "./pages/Requests";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -53,7 +53,8 @@ function App() {
 
   return (
     <>
-      <Requests requests={requests} books={books} />
+      <AddBook />
+      {/* <Requests requests={requests} books={books} /> */}
     </>
   );
 }
