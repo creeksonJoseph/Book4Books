@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import AddBook from "./pages/AddBook";
-// import Requests from "./pages/Requests";
+// import AddBook from "./pages/AddBook";
+import Requests from "./pages/Requests";
 
 export const API_URL = "http://localhost:3001/";
 
@@ -55,8 +55,8 @@ function App() {
 
   return (
     <>
-      <AddBook />
-      {/* <Requests requests={requests} books={books} /> */}
+      {/* <AddBook /> */}
+      <Requests requests={requests} books={books} />
     </>
   );
 }

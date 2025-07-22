@@ -20,7 +20,7 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg",
       "author": "James Clear",
       "contacts": "143.90.219.157",
-      "available": true,
+      "available": false,
       "ownerId": 1
     },
     {
@@ -31,7 +31,7 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UF1000,1000_QL80_.jpg",
       "author": "Paulo Coelho",
       "contacts": "198.188.109.160",
-      "available": true,
+      "available": false,
       "ownerId": 2
     },
     {
@@ -42,7 +42,7 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg",
       "author": "George Orwell",
       "contacts": "220.120.155.194",
-      "available": true,
+      "available": false,
       "ownerId": 1
     },
     {
@@ -53,7 +53,7 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/81A7hPZtEIL._AC_UF1000,1000_QL80_.jpg",
       "author": "Mark Manson",
       "contacts": "131.70.198.118",
-      "available": true,
+      "available": false,
       "ownerId": 2
     },
     {
@@ -64,7 +64,7 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/713jIoMO3UL._AC_UF1000,1000_QL80_.jpg",
       "author": "Yuval Noah Harari",
       "contacts": "48.220.141.95",
-      "available": true,
+      "available": false,
       "ownerId": 1
     },
     {

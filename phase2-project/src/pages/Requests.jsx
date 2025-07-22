@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { API_URL } from "../App";
 
 function Requests({ requests = [], books = [] }) {
@@ -9,39 +8,36 @@ function Requests({ requests = [], books = [] }) {
     setLocalRequests(requests);
   }, [requests]);
 
-  const handleAccept = async (requestId, bookId) => {
-    // Update request status
-    await fetch(`${API_URL}${requestId}`, {
+  // Toggle status between Pending <-> Accepted <-> Declined
+  const handleToggleStatus = async (requestId, bookId, currentStatus) => {
+    let newStatus;
+    let bookAvailable;
+    if (currentStatus === "Pending" || currentStatus === "Declined") {
+      newStatus = "Accepted";
+      bookAvailable = false;
+    } else if (currentStatus === "Accepted") {
+      newStatus = "Declined";
+      bookAvailable = true;
+    }
+
+    // Persist request status
+    await fetch(`${API_URL}requests/${requestId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: "Accepted" }),
+      body: JSON.stringify({ status: newStatus }),
     });
 
-    // Update book availability
+    // Persist book availability
     await fetch(`${API_URL}books/${bookId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ available: false }),
+      body: JSON.stringify({ available: bookAvailable }),
     });
 
     // Update local state
     setLocalRequests((prev) =>
       prev.map((req) =>
-        req.id === requestId ? { ...req, status: "Accepted" } : req
-      )
-    );
-  };
-
-  const handleDecline = async (requestId) => {
-    await fetch(`${API_URL}requests/${requestId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: "Declined" }),
-    });
-
-    setLocalRequests((prev) =>
-      prev.map((req) =>
-        req.id === requestId ? { ...req, status: "Declined" } : req
+        req.id === requestId ? { ...req, status: newStatus } : req
       )
     );
   };
@@ -78,22 +74,30 @@ function Requests({ requests = [], books = [] }) {
                   Status: {request.status}
                 </p>
 
-                {request.status === "Pending" && (
-                  <div className="flex gap-4">
+                <div className="flex gap-4">
+                  {(request.status === "Pending" ||
+                    request.status === "Declined") && (
                     <button
-                      onClick={() => handleAccept(request.id, book.id)}
+                      onClick={() =>
+                        handleToggleStatus(request.id, book.id, request.status)
+                      }
                       className="px-4 py-2 rounded-lg bg-green-800 hover:bg-green-600 transition font-semibold"
                     >
                       Accept
                     </button>
+                  )}
+                  {(request.status === "Pending" ||
+                    request.status === "Accepted") && (
                     <button
-                      onClick={() => handleDecline(request.id)}
+                      onClick={() =>
+                        handleToggleStatus(request.id, book.id, request.status)
+                      }
                       className="px-4 py-2 rounded-lg bg-gray-400 hover:bg-gray-200 text-black font-semibold transition"
                     >
                       Decline
                     </button>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             );
           })}
