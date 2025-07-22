@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Bianca Mbatha",
       "email": "bianca@example.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Creekson Joseph",
       "email": "creekson@example.com"
     }
   ],
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Atomic Habits",
       "synopsis": "An easy & proven way to build good habits and break bad ones.",
       "full_description": "James Clear explains practical strategies to form habits that stick, with science-backed methods and real-life stories.",
@@ -24,7 +24,7 @@
       "ownerId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "The Alchemist",
       "synopsis": "A young shepherd embarks on a journey to fulfill his destiny.",
       "full_description": "Paulo Coelho's spiritual adventure that teaches about listening to your heart and following dreams.",
@@ -35,7 +35,7 @@
       "ownerId": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "1984",
       "synopsis": "A dystopian future ruled by surveillance and oppression.",
       "full_description": "George Orwell's chilling novel about a totalitarian regime and the power of Big Brother.",
@@ -46,7 +46,7 @@
       "ownerId": 1
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "The Subtle Art of Not Giving a F*ck",
       "synopsis": "A no-BS guide to living a better life by caring less.",
       "full_description": "Mark Manson delivers a brutally honest take on happiness, struggles, and finding value in the right things.",
@@ -57,7 +57,7 @@
       "ownerId": 2
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Sapiens: A Brief History of Humankind",
       "synopsis": "A deep dive into how Homo sapiens came to dominate the Earth.",
       "full_description": "Yuval Noah Harari explores human history from the Stone Age to the present, blending science, history, and philosophy.",
@@ -66,11 +66,33 @@
       "contacts": "48.220.141.95",
       "available": true,
       "ownerId": 1
+    },
+    {
+      "id": "53d9",
+      "title": "Pride and Prejudice",
+      "author": " Jane Austen",
+      "synopsis": "A timeless novel exploring social class and romance in 19th-century England. ",
+      "full_description": "This Prestwick House Literary Touchstone Edition? includes a glossary and reader's notes to help the modern reader enjoy the characters and situations as Austen intended and not merely as relics of a long-past era.Jane's Austen's delightfully scathing satire on class, pride, and proper behavior is as beloved today as it was when first published in 1813.",
+      "cover_image_url": "https://images.unsplash.com/photo-1604866830893-c13cafa515d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9va3N8ZW58MHx8MHx8fDA%3D",
+      "contacts": "1234567",
+      "available": true,
+      "ownerId": 1
+    },
+    {
+      "id": "8952",
+      "title": "To Kill a Mockingbird ",
+      "author": " Harper Lee ",
+      "synopsis": "A timeless novel exploring social class and romance in 19th-century England. ",
+      "full_description": "o Kill a Mockingbird is a 1960 Southern Gothic novel by American author Harper Lee.[1] It became instantly successful after its release; in the United States, it is widely read in high schools and middle schools.To Kill a Mockingbird won the Pulitzer Prize a year after its release, and it has become a classic of modern American literature.The plot and characters are loosely based on Lee's observations of her family, her neighbors and an event that occurred near her hometown of Monroeville, Alabama, in 1936, when she was ten.",
+      "cover_image_url": "https://images.unsplash.com/photo-1705721357357-ab87523248f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Ym9va3N8ZW58MHx8MHx8fDA%3D",
+      "contacts": "1234566",
+      "available": true,
+      "ownerId": 1
     }
   ],
   "requests": [
     {
-      "id": 1,
+      "id": "1",
       "bookId": 2,
       "requesterId": 1,
       "ownerId": 2,

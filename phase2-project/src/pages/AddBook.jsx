@@ -12,10 +12,12 @@ function AddBook({ onAddBook }) {
     contacts: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSuccessMessage("");
 
     const newBook = {
       ...formData,
@@ -45,8 +47,10 @@ function AddBook({ onAddBook }) {
         cover_image_url: "",
         contacts: "",
       });
+      setSuccessMessage("Book added successfully!");
     } catch (error) {
       console.error(error);
+      setSuccessMessage("Failed to add book. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -65,6 +69,11 @@ function AddBook({ onAddBook }) {
         className="bg-gradient-to-br from-emerald-900 to-black text-white p-10 rounded-xl shadow-xl w-full max-w-4xl"
       >
         <h2 className="text-3xl font-bold mb-8 text-center">Add a Book</h2>
+        {successMessage && (
+          <div className="mb-6 text-center text-green-400 font-semibold">
+            {successMessage}
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Left Side */}
