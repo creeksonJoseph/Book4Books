@@ -3,6 +3,8 @@ import { useState } from "react";
 import AddBook from "./pages/AddBook";
 // import Requests from "./pages/Requests";
 
+export const API_URL = "http://localhost:3001/";
+
 function App() {
   const [count, setCount] = useState(0);
 

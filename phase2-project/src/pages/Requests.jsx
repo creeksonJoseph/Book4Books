@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { API_URL } from "../App";
+
 function Requests({ requests = [], books = [] }) {
   const [localRequests, setLocalRequests] = useState(requests);
 
@@ -9,14 +11,14 @@ function Requests({ requests = [], books = [] }) {
 
   const handleAccept = async (requestId, bookId) => {
     // Update request status
-    await fetch(`http://localhost:3000/requests/${requestId}`, {
+    await fetch(`${API_URL}${requestId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: "Accepted" }),
     });
 
     // Update book availability
-    await fetch(`http://localhost:3000/books/${bookId}`, {
+    await fetch(`${API_URL}books/${bookId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ available: false }),
@@ -31,7 +33,7 @@ function Requests({ requests = [], books = [] }) {
   };
 
   const handleDecline = async (requestId) => {
-    await fetch(`http://localhost:3000/requests/${requestId}`, {
+    await fetch(`${API_URL}requests/${requestId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: "Declined" }),
