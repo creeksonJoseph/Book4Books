@@ -130,3 +130,33 @@
   color: white;
   font-style: italic;
 }
+
+.book-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.book-card-link:hover {
+  text-decoration: none;
+}
+
+.book-status {
+  margin-top: 0.5rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-badge.available {
+  background-color: #10b981;
+  color: white;
+}
+
+.status-badge.borrowed {
+  background-color: #f59e0b;
+  color: white;
+}

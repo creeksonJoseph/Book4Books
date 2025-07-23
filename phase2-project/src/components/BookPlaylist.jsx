@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BookPlaylist.css';
 
 function BookPlaylist({ books }) {
@@ -19,25 +20,32 @@ function BookPlaylist({ books }) {
       {/* Book Grid */}
       <div className="book-grid">
         {books.map(book => (
-          <div key={book.id} className="book-card">
-            {/* Book Image */}
-            <div className="image-container">
-              <img
-                src={book.coverImageUrl}
-                alt={book.title}
-                onError={handleImageError}
-                className="book-image"
-              />
-              {/* Overlay */}
-              <div className="image-overlay"></div>
-            </div>
+          <Link key={book.id} to={`/book/${book.id}`} className="book-card-link">
+            <div className="book-card">
+              {/* Book Image */}
+              <div className="image-container">
+                <img
+                  src={book.coverImageUrl}
+                  alt={book.title}
+                  onError={handleImageError}
+                  className="book-image"
+                />
+                {/* Overlay */}
+                <div className="image-overlay"></div>
+              </div>
 
-            {/* Book Info */}
-            <div className="book-info">
-              <h4 className="book-title">{book.title}</h4>
-              <p className="book-author">{book.author}</p>
+              {/* Book Info */}
+              <div className="book-info">
+                <h4 className="book-title">{book.title}</h4>
+                <p className="book-author">{book.description}</p>
+                <div className="book-status">
+                  <span className={`status-badge ${book.status}`}>
+                    {book.status === 'available' ? '✅ Available' : '📚 Borrowed'}
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
