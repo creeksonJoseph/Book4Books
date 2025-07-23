@@ -24,11 +24,14 @@ function App() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'flex-start',
+        width: '100vw',
+        margin: 0,
+        padding: 0
       }}>
         {/* Header */}
-        <header className="text-center py-8 border-b border-emerald-700">
-          <div className="max-w-7xl mx-auto px-4">
+        <header className="text-center py-8 border-b border-emerald-700 w-full">
+          <div className="px-4">
             <h1 className="text-6xl font-bold text-emerald-100 mb-4 drop-shadow-2xl">
               📖 Book Library
             </h1>
@@ -43,7 +46,7 @@ function App() {
           display: 'flex', 
           flexDirection: 'column', 
           width: '100%',
-          maxWidth: '1200px'
+          flex: 1
         }}>
           <Routes>
             <Route path="/" element={
