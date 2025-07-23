@@ -1,0 +1,164 @@
+[
+  {
+    "id": "b1",
+    "title": "The Hobbit",
+    "description": "A fantasy novel about Bilbo Baggins' unexpected adventure.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=1",
+    "owner": "user1",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b2",
+    "title": "1984", 
+    "description": "A dystopian social science fiction novel.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=2",
+    "owner": "user2",
+    "borrower": "user1",
+    "status": "borrowed"
+  },
+  {
+    "id": "b3",
+    "title": "Design Patterns",
+    "description": "Software engineering design patterns book.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=3",
+    "owner": "user1",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b4",
+    "title": "To Kill a Mockingbird",
+    "description": "A gripping tale of racial injustice and childhood innocence.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=4",
+    "owner": "user2",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b5",
+    "title": "The Great Gatsby",
+    "description": "A classic American novel about the Jazz Age.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=5",
+    "owner": "user3",
+    "borrower": "user2",
+    "status": "borrowed"
+  },
+  {
+    "id": "b6",
+    "title": "Pride and Prejudice",
+    "description": "A romantic novel about manners and marriage.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=6",
+    "owner": "user1",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b7",
+    "title": "The Catcher in the Rye",
+    "description": "A coming-of-age story in New York City.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=7",
+    "owner": "user2",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b8",
+    "title": "Lord of the Flies",
+    "description": "A novel about British boys stranded on an island.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=8",
+    "owner": "user3",
+    "borrower": "user1",
+    "status": "borrowed"
+  },
+  {
+    "id": "b9",
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "description": "The first book in the magical Harry Potter series.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=9",
+    "owner": "user1",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b10",
+    "title": "The Lord of the Rings",
+    "description": "An epic fantasy adventure in Middle-earth.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=10",
+    "owner": "user2",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b11",
+    "title": "Brave New World",
+    "description": "A dystopian novel about a technologically advanced society.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=11",
+    "owner": "user3",
+    "borrower": "user2",
+    "status": "borrowed"
+  },
+  {
+    "id": "b12",
+    "title": "The Chronicles of Narnia",
+    "description": "A fantasy series about children who discover a magical world.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=12",
+    "owner": "user1",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b13",
+    "title": "Fahrenheit 451",
+    "description": "A dystopian novel about a future where books are banned.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=13",
+    "owner": "user2",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b14",
+    "title": "Jane Eyre",
+    "description": "A Gothic romance novel about an orphaned governess.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=14",
+    "owner": "user3",
+    "borrower": "user1",
+    "status": "borrowed"
+  },
+  {
+    "id": "b15",
+    "title": "The Alchemist",
+    "description": "A philosophical novel about following your dreams.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=15",
+    "owner": "user1",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b16",
+    "title": "Moby Dick",
+    "description": "An epic tale of obsession and the hunt for a white whale.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=16",
+    "owner": "user2",
+    "borrower": null,
+    "status": "available"
+  },
+  {
+    "id": "b17",
+    "title": "The Odyssey",
+    "description": "Homer's epic poem about Odysseus's journey home.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=17",
+    "owner": "user3",
+    "borrower": "user2",
+    "status": "borrowed"
+  },
+  {
+    "id": "b18",
+    "title": "Wuthering Heights",
+    "description": "A passionate tale of love and revenge on the Yorkshire moors.",
+    "coverImageUrl": "https://picsum.photos/200/300?random=18",
+    "owner": "user1",
+    "borrower": null,
+    "status": "available"
+  }
+]
