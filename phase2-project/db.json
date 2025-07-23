@@ -20,7 +20,7 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg",
       "author": "James Clear",
       "contacts": "143.90.219.157",
-      "available": false,
+      "available": true,
       "ownerId": 1
     },
     {
@@ -31,7 +31,7 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UF1000,1000_QL80_.jpg",
       "author": "Paulo Coelho",
       "contacts": "198.188.109.160",
-      "available": false,
+      "available": true,
       "ownerId": 2
     },
     {
@@ -96,7 +96,7 @@
       "bookId": 2,
       "requesterId": 1,
       "ownerId": 2,
-      "status": "Pending"
+      "status": "Declined"
     }
   ]
 }
