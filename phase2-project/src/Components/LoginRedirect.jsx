@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function SignupRedirect() {
+function LoginRedirect() {
   return (
     <Link
-      to="/login"
+      to="/signUp"
       className="text-sm text-blue-500 hover:underline hover:text-blue-700"
     >
-      Already a member? Log in
+      Not a member? Sign in now
     </Link>
   );
 }
-
-export default SignupRedirect;
+export default LoginRedirect;

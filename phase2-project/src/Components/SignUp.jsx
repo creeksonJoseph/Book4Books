@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import bg from "../assets/creative-composition-world-book-day.jpg";
+import SignupRedirect from "./SignUpRedirect";
 
 function Signup({ onSignup }) {
   const [formData, setFormData] = useState({
@@ -107,6 +108,7 @@ function Signup({ onSignup }) {
         >
           {isSubmitting ? "Creating Account..." : "Sign Up"}
         </button>
+        <SignupRedirect />
       </form>
     </div>
   );

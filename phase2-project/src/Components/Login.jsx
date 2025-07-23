@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import bg from "../assets/creative-composition-world-book-day.jpg"; // same bg as AddBook
+import bg from "../assets/creative-composition-world-book-day.jpg";
+import LoginRedirect from "./LoginRedirect.jsx";
 
 function Login({ onLogin }) {
   const [formData, setFormData] = useState({
@@ -77,6 +78,7 @@ function Login({ onLogin }) {
         >
           {isLoggingIn ? "Logging In..." : "Log In"}
         </button>
+        <LoginRedirect />
       </form>
     </div>
   );

@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import { Routes, Route } from "react-router-dom";
 import AddBook from "./Components/AddBook";
 import Requests from "./Components/Requests";
 import Login from "./Components/Login";
@@ -9,12 +8,12 @@ export const API_URL = "http://localhost:3001/";
 
 function App() {
   return (
-    <>
-      <AddBook />
-      <Requests />
-      <Login />
-      <Signup />
-    </>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/addbook" element={<AddBook />} />
+      <Route path="/requests" element={<Requests />} />
+    </Routes>
   );
 }
 
