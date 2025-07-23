@@ -1,0 +1,159 @@
+.book-playlist {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: transparent;
+  background: linear-gradient(to right, #6ee7b7, #5eead4, #86efac);
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.title-underline {
+  width: 8rem;
+  height: 0.25rem;
+  background: linear-gradient(to right, #34d399, #14b8a6);
+  margin: 0 auto;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .book-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.book-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.book-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.book-image {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 2px solid rgba(52, 211, 153, 0.6);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s ease;
+}
+
+.book-card:hover .book-image {
+  box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.7);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(6, 78, 59, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.book-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.book-info {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.book-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.book-card:hover .book-title {
+  color: #6ee7b7;
+}
+
+.book-author {
+  font-size: 1.125rem;
+  color: white;
+  font-style: italic;
+}
+
+.book-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.book-card-link:hover {
+  text-decoration: none;
+}
+
+.book-status {
+  margin-top: 0.5rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-badge.available {
+  background-color: #10b981;
+  color: white;
+}
+
+.status-badge.borrowed {
+  background-color: #f59e0b;
+  color: white;
+}
