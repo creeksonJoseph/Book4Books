@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import BookPlaylist from './components/BookPlaylist'
 import BookDetails from './components/BookDetails'
 import ExchangePage from './components/ExchangePage'
+import SplashScreen from './components/SplashScreen'
 import './App.css'
 
 function App() {
   const [books, setBooks] = useState([])
+  const [showSplash, setShowSplash] = useState(true)
   const currentUser = { id: "user1" }
 
   useEffect(() => {
@@ -15,6 +17,18 @@ function App() {
       .then(data => setBooks(data))
       .catch(error => console.error('Error:', error))
   }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false)
+    }, 15000) // 15 seconds
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (showSplash) {
+    return <SplashScreen />
+  }
 
   return (
     <Router>
