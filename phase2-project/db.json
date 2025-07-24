@@ -94,6 +94,24 @@
   ],
   "books": [
     {
+      "id": "b1",
+      "title": "The Hobbit",
+      "description": "A fantasy novel about Bilbo Baggins' unexpected adventure.",
+      "coverImageUrl": "http://dummyimage.com/200x300.png/5fa2dd/ffffff",
+      "owner": "user1",
+      "contact": "user1@email.com",
+      "status": "read"
+    },
+    {
+      "id": "b2",
+      "title": "1984",
+      "description": "A dystopian social science fiction novel.",
+      "coverImageUrl": "http://dummyimage.com/200x300.png/cc0000/ffffff",
+      "owner": "user2",
+      "contact": "user2@email.com",
+      "status": "available"
+    },
+    {
       "id": "1",
       "title": "Atomic Habits",
       "synopsis": "An easy & proven way to build good habits and break bad ones.",
