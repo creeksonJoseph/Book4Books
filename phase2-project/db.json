@@ -24,6 +24,72 @@
       "id": "5",
       "name": "Maya Atieno",
       "email": "maya@example.com"
+    },
+    {
+      "id": "a950",
+      "name": "nate james",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "28a5",
+      "name": "MANUU",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "7804",
+      "name": "MANUU",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "1903",
+      "name": "MANUU",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "296f",
+      "name": "MANUU",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "6a88",
+      "name": "MANUU",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "00b6",
+      "name": "MANUU",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "905d",
+      "name": "MANUU",
+      "email": "maryndemo1983@gmail.com",
+      "password": "QWERTY"
+    },
+    {
+      "id": "7e59",
+      "username": "alpha_chronicles",
+      "email": "Josephcreekson@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "cffc",
+      "username": "john@kiarie",
+      "email": "jogn@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "5074",
+      "username": "creekson",
+      "email": "123@gmail.com",
+      "password": "123"
     }
   ],
   "books": [

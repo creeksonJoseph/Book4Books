@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import bg from "../assets/creative-composition-world-book-day.jpg";
 import SignupRedirect from "./SignUpRedirect";
+import { API_URL } from "../App";
+import { useNavigate } from "react-router-dom";
 
 function Signup({ onSignup }) {
   const [formData, setFormData] = useState({
@@ -9,6 +11,9 @@ function Signup({ onSignup }) {
     password: "",
     confirmPassword: "",
   });
+
+  const navigate = useNavigate();
+
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -22,6 +27,7 @@ function Signup({ onSignup }) {
 
     const { username, email, password, confirmPassword } = formData;
 
+    // Validation
     if (!username || !email || !password || !confirmPassword) {
       setError("All fields are required");
       setIsSubmitting(false);
@@ -34,9 +40,28 @@ function Signup({ onSignup }) {
       return;
     }
 
+    // Submit to server
     try {
-      // Hook into real API later
-      onSignup?.(formData);
+      const res = await fetch(`${API_URL}users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      if (!res.ok) throw new Error("Failed to signup");
+
+      // Clear form
+      setFormData({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+
+      if (onSignup) onSignup();
+      navigate("/dashboard");
     } catch (err) {
       setError("Signup failed. Try again.");
     } finally {
@@ -53,14 +78,14 @@ function Signup({ onSignup }) {
         onSubmit={handleSubmit}
         style={{
           backgroundImage: `
-      linear-gradient(
-        to bottom right,
-        rgba(6, 95, 70, 0.7),
-        rgba(0, 0, 0, 0.7),
-        rgba(31, 41, 55, 0.7)
-      ),
-      url('${bg}')
-    `,
+            linear-gradient(
+              to bottom right,
+              rgba(6, 95, 70, 0.7),
+              rgba(0, 0, 0, 0.7),
+              rgba(31, 41, 55, 0.7)
+            ),
+            url('${bg}')
+          `,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -81,9 +106,9 @@ function Signup({ onSignup }) {
         <input
           type="text"
           name="username"
-          placeholder="yourname"
           value={formData.username}
           onChange={handleChange}
+          placeholder="yourname"
           className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
         />
 
@@ -91,9 +116,9 @@ function Signup({ onSignup }) {
         <input
           type="email"
           name="email"
-          placeholder="you@example.com"
           value={formData.email}
           onChange={handleChange}
+          placeholder="you@example.com"
           className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
         />
 
@@ -101,9 +126,9 @@ function Signup({ onSignup }) {
         <input
           type="password"
           name="password"
-          placeholder="********"
           value={formData.password}
           onChange={handleChange}
+          placeholder="********"
           className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
         />
 
@@ -111,9 +136,9 @@ function Signup({ onSignup }) {
         <input
           type="password"
           name="confirmPassword"
-          placeholder="********"
           value={formData.confirmPassword}
           onChange={handleChange}
+          placeholder="********"
           className="w-full mb-6 px-4 py-2 rounded-lg bg-gray-400 text-black"
         />
 
@@ -124,6 +149,7 @@ function Signup({ onSignup }) {
         >
           {isSubmitting ? "Creating Account..." : "Sign Up"}
         </button>
+
         <SignupRedirect />
       </form>
     </div>
