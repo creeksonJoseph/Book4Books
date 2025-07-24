@@ -4,6 +4,8 @@ import LoginRedirect from "./LoginRedirect.jsx";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function Login({ onLogin }) {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -27,6 +29,9 @@ function Login({ onLogin }) {
 
     try {
       onLogin?.(formData);
+
+      //Navigate to dashboard after fake login
+      navigate("/dashboard");
     } catch (err) {
       setError("Login failed. Please try again.");
     } finally {
@@ -90,11 +95,11 @@ function Login({ onLogin }) {
         <button
           type="submit"
           disabled={isLoggingIn}
-          onClick={Navigate}
           className="w-full py-3 rounded-lg bg-emerald-800 hover:bg-emerald-700 font-semibold transition"
         >
           {isLoggingIn ? "Logging In..." : "Log In"}
         </button>
+
         <LoginRedirect />
       </form>
     </div>

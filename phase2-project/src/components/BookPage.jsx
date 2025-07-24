@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../App.css";
 import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
+import { API_URL } from "../App";
 
 const BookPage = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const BookPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/books/${id}`)
+    fetch(`${API_URL}${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch book data");
         return res.json();

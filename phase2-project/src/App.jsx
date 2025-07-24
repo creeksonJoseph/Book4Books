@@ -76,22 +76,10 @@ function App() {
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/requests" element={<Requests />} />
         <Route path="/book/:id" element={<BookPage />} />
+        <Route path="/mybooks" element={<BookPlaylist books={books} />} />
         <Route
-          path="/library"
-          element={
-            <>
-              <div className="flex-1 p-8 border-b border-emerald-700">
-                <div className="max-w-7xl mx-auto">
-                  <BookPlaylist books={books} />
-                </div>
-              </div>
-              <div className="flex-1 p-8">
-                <div className="max-w-7xl mx-auto">
-                  <ExchangePage books={books} currentUser={currentUser} />
-                </div>
-              </div>
-            </>
-          }
+          path="/exchange"
+          element={<ExchangePage books={books} currentUser={currentUser} />}
         />
         <Route
           path="/bookdetails/:id"
