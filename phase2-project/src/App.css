@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .app {
   max-width: 1200px;
   margin: 0 auto;
@@ -46,4 +47,105 @@
 .book-info a {
   color: #646cff;
   text-decoration: none;
+=======
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
 }
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003c30;
+  padding: 10px 30px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  font-size: 24px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.navbar-links a {
+  margin-left: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+.dashboard-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book-card {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border-radius: 12px;
+  width: 200px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.book-detail {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #003c30;
+  padding: 30px;
+  border-radius: 12px;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+>>>>>>> 8a4cf72c0aa7310956e70131c1856915c50facac
+}
+
