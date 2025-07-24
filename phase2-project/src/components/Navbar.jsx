@@ -14,13 +14,15 @@ function Navbar({ currentUser }) {
         <div className="flex items-center justify-between h-16">
           {/* Left Logo */}
           <div className="flex items-center space-x-2">
-            <FontAwesomeIcon icon={faBook} className="text-emerald-300 text-2xl" />
+            <FontAwesomeIcon
+              icon={faBook}
+              className="text-emerald-300 text-2xl"
+            />
             <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300">
               Book4Books
             </h1>
           </div>
 
-          {/* Right Navigation Links */}
           <div className="flex items-center space-x-6">
             <Link
               to="/my-books"
@@ -53,7 +55,7 @@ function Navbar({ currentUser }) {
               Exchange Page
             </Link>
             <Link
-              to="/add-book"
+              to="/addbook"
               className={`px-4 py-2 rounded-lg transition-colors ${
                 isActive("/add-book")
                   ? "bg-emerald-600 text-white"
@@ -63,10 +65,10 @@ function Navbar({ currentUser }) {
               Add Book
             </Link>
 
-            {/* Welcome Text */}
+            {/* Welcome Text
             <div className="text-emerald-300 text-sm">
               Welcome, {currentUser?.name || "User"}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3000); // Reduced from 15s to 3s for UX
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -67,7 +67,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Signup />} />
@@ -98,7 +98,7 @@ function App() {
           element={<BookDetails books={books} currentUser={currentUser} />}
         />
       </Routes>
-    </Router>
+    </>
   );
 }
 
