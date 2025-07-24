@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+           <Route path="/book/:id" element={<BookPage />} />
      
       </Routes>
     </Router>
