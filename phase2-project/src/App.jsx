@@ -1,15 +1,24 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard.jsx";
 
+// Components
+import Dashboard from "./components/Dashboard";
+import AddBook from "./Components/AddBook";
+import Requests from "./Components/Requests";
+import Login from "./Components/Login";
+import Signup from "./Components/SignUp";
+
+export const API_URL = "http://localhost:3001/";
 
 function App() {
   return (
     <Router>
-     
       <Routes>
-        <Route path="/Dashboard" element={<Dashboard />} />
-     
+        <Route path="/" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/addbook" element={<AddBook />} />
+        <Route path="/requests" element={<Requests />} />
       </Routes>
     </Router>
   );
