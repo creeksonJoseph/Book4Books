@@ -9,25 +9,49 @@ import './App.css'
 function App() {
   const [books, setBooks] = useState([])
   const [showSplash, setShowSplash] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const currentUser = { id: "user1" }
 
   useEffect(() => {
     fetch('/db.json')
       .then(response => response.json())
-      .then(data => setBooks(data))
-      .catch(error => console.error('Error:', error))
+      .then(data => {
+        setBooks(data)
+        setIsLoading(false)
+      })
+      .catch(error => {
+        console.error('Error:', error)
+        setIsLoading(false)
+      })
   }, [])
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false)
-    }, 35000) // 35 seconds
+    }, 15000) // 15 seconds
 
     return () => clearTimeout(timer)
   }, [])
 
   if (showSplash) {
     return <SplashScreen />
+  }
+
+  if (isLoading) {
+    return (
+      <div style={{
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: '#14532d',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#6ee7b7',
+        fontSize: '1.5rem'
+      }}>
+        Loading your library...
+      </div>
+    )
   }
 
   return (
@@ -47,7 +71,9 @@ function App() {
         width: '100vw',
         margin: 0,
         padding: 0,
-        position: 'relative'
+        position: 'relative',
+        opacity: 1,
+        transition: 'opacity 0.5s ease-in-out'
       }}>
         {/* Add overlay for better text readability */}
         <div style={{
