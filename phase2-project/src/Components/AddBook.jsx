@@ -66,7 +66,23 @@ function AddBook({ onAddBook }) {
     >
       <form
         onSubmit={handleSubmit}
-        className="bg-gradient-to-br from-emerald-900 to-black text-white p-10 rounded-xl shadow-xl w-full max-w-4xl"
+        style={{
+          backgroundImage: `
+      linear-gradient(
+        to bottom right,
+        rgba(6, 95, 70, 0.7),
+        rgba(0, 0, 0, 0.7),
+        rgba(31, 41, 55, 0.7)
+      ),
+      url('${bg}')
+    `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          color: "white",
+        }}
+        className="text-white p-10 rounded-xl shadow-xl w-full max-w-4xl backdrop-blur-md border border-white/20"
       >
         <h2 className="text-3xl font-bold mb-8 text-center">Add a Book</h2>
         {successMessage && (

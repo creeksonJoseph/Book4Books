@@ -9,6 +9,21 @@
       "id": "2",
       "name": "Creekson Joseph",
       "email": "creekson@example.com"
+    },
+    {
+      "id": "3",
+      "name": "Nia Okoth",
+      "email": "nia@example.com"
+    },
+    {
+      "id": "4",
+      "name": "Jayden Kip",
+      "email": "jayden@example.com"
+    },
+    {
+      "id": "5",
+      "name": "Maya Atieno",
+      "email": "maya@example.com"
     }
   ],
   "books": [
@@ -21,7 +36,7 @@
       "author": "James Clear",
       "contacts": "143.90.219.157",
       "available": true,
-      "ownerId": 1
+      "ownerId": "1"
     },
     {
       "id": "2",
@@ -32,7 +47,7 @@
       "author": "Paulo Coelho",
       "contacts": "198.188.109.160",
       "available": true,
-      "ownerId": 2
+      "ownerId": "2"
     },
     {
       "id": "3",
@@ -42,8 +57,8 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg",
       "author": "George Orwell",
       "contacts": "220.120.155.194",
-      "available": false,
-      "ownerId": 1
+      "available": true,
+      "ownerId": "1"
     },
     {
       "id": "4",
@@ -54,7 +69,7 @@
       "author": "Mark Manson",
       "contacts": "131.70.198.118",
       "available": false,
-      "ownerId": 2
+      "ownerId": "2"
     },
     {
       "id": "5",
@@ -64,39 +79,95 @@
       "cover_image_url": "https://m.media-amazon.com/images/I/713jIoMO3UL._AC_UF1000,1000_QL80_.jpg",
       "author": "Yuval Noah Harari",
       "contacts": "48.220.141.95",
-      "available": false,
-      "ownerId": 1
-    },
-    {
-      "id": "53d9",
-      "title": "Pride and Prejudice",
-      "author": " Jane Austen",
-      "synopsis": "A timeless novel exploring social class and romance in 19th-century England. ",
-      "full_description": "This Prestwick House Literary Touchstone Edition? includes a glossary and reader's notes to help the modern reader enjoy the characters and situations as Austen intended and not merely as relics of a long-past era.Jane's Austen's delightfully scathing satire on class, pride, and proper behavior is as beloved today as it was when first published in 1813.",
-      "cover_image_url": "https://images.unsplash.com/photo-1604866830893-c13cafa515d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9va3N8ZW58MHx8MHx8fDA%3D",
-      "contacts": "1234567",
       "available": true,
-      "ownerId": 1
+      "ownerId": "1"
     },
     {
-      "id": "8952",
-      "title": "To Kill a Mockingbird ",
-      "author": " Harper Lee ",
-      "synopsis": "A timeless novel exploring social class and romance in 19th-century England. ",
-      "full_description": "o Kill a Mockingbird is a 1960 Southern Gothic novel by American author Harper Lee.[1] It became instantly successful after its release; in the United States, it is widely read in high schools and middle schools.To Kill a Mockingbird won the Pulitzer Prize a year after its release, and it has become a classic of modern American literature.The plot and characters are loosely based on Lee's observations of her family, her neighbors and an event that occurred near her hometown of Monroeville, Alabama, in 1936, when she was ten.",
-      "cover_image_url": "https://images.unsplash.com/photo-1705721357357-ab87523248f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Ym9va3N8ZW58MHx8MHx8fDA%3D",
+      "id": "6",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "synopsis": "A timeless novel exploring social class and romance in 19th-century England.",
+      "full_description": "Jane's Austen's delightfully scathing satire on class, pride, and proper behavior is as beloved today as it was when first published in 1813.",
+      "cover_image_url": "https://images.unsplash.com/photo-1604866830893-c13cafa515d5?w=500&auto=format&fit=crop&q=60",
+      "contacts": "1234567",
+      "available": false,
+      "ownerId": "1"
+    },
+    {
+      "id": "7",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "synopsis": "A Southern Gothic novel tackling racism and justice.",
+      "full_description": "The plot and characters are loosely based on Lee's observations of her family, neighbors, and an event that occurred near her hometown in 1936.",
+      "cover_image_url": "https://images.unsplash.com/photo-1705721357357-ab87523248f7?w=500&auto=format&fit=crop&q=60",
       "contacts": "1234566",
       "available": true,
-      "ownerId": 1
+      "ownerId": "1"
     }
   ],
   "requests": [
     {
       "id": "1",
-      "bookId": 2,
-      "requesterId": 1,
-      "ownerId": 2,
+      "bookId": "2",
+      "requesterId": "1",
+      "ownerId": "2",
       "status": "Declined"
+    },
+    {
+      "id": "2",
+      "bookId": "5",
+      "requesterId": "3",
+      "ownerId": "1",
+      "status": "Declined"
+    },
+    {
+      "id": "3",
+      "bookId": "1",
+      "requesterId": "2",
+      "ownerId": "1",
+      "status": "Approved"
+    },
+    {
+      "id": "4",
+      "bookId": "6",
+      "requesterId": "4",
+      "ownerId": "1",
+      "status": "Accepted"
+    },
+    {
+      "id": "5",
+      "bookId": "3",
+      "requesterId": "1",
+      "ownerId": "1",
+      "status": "Declined"
+    },
+    {
+      "id": "6",
+      "bookId": "7",
+      "requesterId": "5",
+      "ownerId": "1",
+      "status": "Approved"
+    },
+    {
+      "id": "7",
+      "bookId": "6",
+      "requesterId": "3",
+      "ownerId": "1",
+      "status": "Accepted"
+    },
+    {
+      "id": "8",
+      "bookId": "2",
+      "requesterId": "5",
+      "ownerId": "2",
+      "status": "Accepted"
+    },
+    {
+      "id": "9",
+      "bookId": "1",
+      "requesterId": "4",
+      "ownerId": "1",
+      "status": "Approved"
     }
   ]
 }

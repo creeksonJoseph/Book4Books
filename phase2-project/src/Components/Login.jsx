@@ -18,7 +18,6 @@ function Login({ onLogin }) {
     setIsLoggingIn(true);
     setError("");
 
-    // 🔐 Replace this with real login logic
     if (!formData.email || !formData.password) {
       setError("All fields are required");
       setIsLoggingIn(false);
@@ -41,7 +40,23 @@ function Login({ onLogin }) {
     >
       <form
         onSubmit={handleSubmit}
-        className="bg-gradient-to-br from-emerald-900 to-black text-white p-10 rounded-xl shadow-xl w-full max-w-md"
+        style={{
+          backgroundImage: `
+      linear-gradient(
+        to bottom right,
+        rgba(6, 95, 70, 0.7),
+        rgba(0, 0, 0, 0.7),
+        rgba(31, 41, 55, 0.7)
+      ),
+      url('${bg}')
+    `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          color: "white",
+        }}
+        className="backdrop-blur-md text-white p-10 rounded-xl shadow-xl w-full max-w-md border border-white/20"
       >
         <h2 className="text-3xl font-bold mb-8 text-center">Log In</h2>
 
@@ -58,7 +73,7 @@ function Login({ onLogin }) {
           placeholder="you@example.com"
           value={formData.email}
           onChange={handleChange}
-          className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+          className="w-full mb-4 px-4 py-2 rounded-lg bg-white/30 backdrop-blur-sm text-white placeholder-white"
         />
 
         <label className="block font-semibold mb-1">Password</label>
@@ -68,7 +83,7 @@ function Login({ onLogin }) {
           placeholder="********"
           value={formData.password}
           onChange={handleChange}
-          className="w-full mb-6 px-4 py-2 rounded-lg bg-gray-400 text-black"
+          className="w-full mb-6 px-4 py-2 rounded-lg bg-white/30 backdrop-blur-sm text-white placeholder-white"
         />
 
         <button

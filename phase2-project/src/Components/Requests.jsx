@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { API_URL } from "../App";
+import bg from "../assets/creative-composition-world-book-day.jpg";
 
 function Requests() {
   const [requests, setRequests] = useState([]);
@@ -76,7 +77,25 @@ function Requests() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-emerald-950 via-black to-gray-900 text-white flex flex-col items-center px-4 py-10">
+    <div
+      className="min-h-screen w-full flex flex-col items-center px-4 py-10 relative"
+      style={{
+        backgroundImage: `
+      linear-gradient(
+        to bottom right,
+        rgba(6, 95, 70, 0.7),
+        rgba(0, 0, 0, 0.7),
+        rgba(31, 41, 55, 0.7)
+      ),
+      url('${bg}')
+    `,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        color: "white",
+      }}
+    >
       <h1 className="text-4xl font-bold mb-8 text-center">Book Requests</h1>
 
       {requests.length === 0 ? (

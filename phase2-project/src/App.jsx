@@ -9,7 +9,7 @@ export const API_URL = "http://localhost:3001/";
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/addbook" element={<AddBook />} />
       <Route path="/requests" element={<Requests />} />
