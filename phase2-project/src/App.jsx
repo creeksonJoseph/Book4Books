@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
+import BookPage from "./components/BookPage";
 import AddBook from "./Components/AddBook";
 import Requests from "./Components/Requests";
 import Login from "./Components/Login";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/requests" element={<Requests />} />
+        <Route path="/book/:id" element={<BookPage />} />
       </Routes>
     </Router>
   );
