@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import bg from "../assets/creative-composition-world-book-day.jpg";
 import LoginRedirect from "./LoginRedirect.jsx";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Login({ onLogin }) {
   const [formData, setFormData] = useState({
@@ -89,6 +90,7 @@ function Login({ onLogin }) {
         <button
           type="submit"
           disabled={isLoggingIn}
+          onClick={Navigate}
           className="w-full py-3 rounded-lg bg-emerald-800 hover:bg-emerald-700 font-semibold transition"
         >
           {isLoggingIn ? "Logging In..." : "Log In"}
