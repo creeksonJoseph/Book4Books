@@ -20,6 +20,11 @@ function App() {
     <Router>
       <div className="min-h-screen bg-green-900" style={{ 
         backgroundColor: '#14532d', 
+        backgroundImage: 'url(/images/library.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        backgroundRepeat: 'no-repeat',
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
@@ -27,10 +32,22 @@ function App() {
         justifyContent: 'flex-start',
         width: '100vw',
         margin: 0,
-        padding: 0
+        padding: 0,
+        position: 'relative'
       }}>
+        {/* Add overlay for better text readability */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(20, 83, 45, 0.3)',
+          zIndex: 1
+        }}></div>
+        
         {/* Header */}
-        <header className="text-center py-8 border-b border-emerald-700 w-full">
+        <header className="text-center py-8 border-b border-emerald-700 w-full" style={{ position: 'relative', zIndex: 2 }}>
           <div className="px-4">
             <h1 className="text-6xl font-bold text-emerald-100 mb-4 drop-shadow-2xl">
               📖 Book Library
@@ -46,7 +63,9 @@ function App() {
           display: 'flex', 
           flexDirection: 'column', 
           width: '100%',
-          flex: 1
+          flex: 1,
+          position: 'relative',
+          zIndex: 2
         }}>
           <Routes>
             <Route path="/" element={
