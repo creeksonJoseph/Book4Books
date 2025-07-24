@@ -61,7 +61,7 @@ function Signup({ onSignup }) {
       });
 
       if (onSignup) onSignup();
-      navigate("/dashboard");
+      navigate("/Dashboard");
     } catch (err) {
       setError("Signup failed. Try again.");
     } finally {
