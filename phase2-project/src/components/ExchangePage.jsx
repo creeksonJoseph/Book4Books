@@ -9,12 +9,12 @@ function ExchangePage({ books, currentUser }) {
   }
 
   return (
-    <div className="space-y-12">
-      <div className="text-center">
-        <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-300 to-green-300 mb-4 animate-pulse">
+    <div className="book-playlist">
+      <div className="header">
+        <h2 className="title">
           🔄 Book Exchange Hub
         </h2>
-        <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 mx-auto rounded-full shadow-lg"></div>
+        <div className="title-underline"></div>
       </div>
 
       {/* Borrowed Books Section */}
@@ -23,22 +23,27 @@ function ExchangePage({ books, currentUser }) {
           📚 My Borrowed Books ({borrowedBooks.length})
         </h3>
         {borrowedBooks.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="book-grid">
             {borrowedBooks.map(book => (
-              <div key={book.id} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-emerald-500/30">
-                <img
-                  src={book.coverImageUrl}
-                  alt={book.title}
-                  onError={handleImageError}
-                  className="w-full h-48 object-cover rounded-lg mb-3"
-                />
-                <h4 className="text-lg font-semibold text-white mb-2">{book.title}</h4>
-                <p className="text-emerald-200 text-sm mb-3">{book.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">
-                    📚 Borrowed
-                  </span>
-                  <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded text-xs transition-colors">
+              <div key={book.id} className="book-card">
+                <div className="image-container">
+                  <img
+                    src={book.coverImageUrl}
+                    alt={book.title}
+                    onError={handleImageError}
+                    className="book-image"
+                  />
+                  <div className="image-overlay"></div>
+                </div>
+                <div className="book-info">
+                  <h4 className="book-title">{book.title}</h4>
+                  <p className="book-author">{book.description}</p>
+                  <div className="book-status">
+                    <span className="status-badge borrowed">
+                      📚 Borrowed
+                    </span>
+                  </div>
+                  <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded text-xs transition-colors mt-2">
                     Return
                   </button>
                 </div>
@@ -55,23 +60,28 @@ function ExchangePage({ books, currentUser }) {
         <h3 className="text-2xl font-bold text-emerald-300 mb-6 text-center">
           ✅ Available Books ({availableBooks.length})
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="book-grid">
           {availableBooks.map(book => (
-            <div key={book.id} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-emerald-500/30">
-              <img
-                src={book.coverImageUrl}
-                alt={book.title}
-                onError={handleImageError}
-                className="w-full h-48 object-cover rounded-lg mb-3"
-              />
-              <h4 className="text-lg font-semibold text-white mb-2">{book.title}</h4>
-              <p className="text-emerald-200 text-sm mb-3">{book.description}</p>
-              <div className="flex justify-between items-center">
-                <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs">
-                  ✅ Available
-                </span>
+            <div key={book.id} className="book-card">
+              <div className="image-container">
+                <img
+                  src={book.coverImageUrl}
+                  alt={book.title}
+                  onError={handleImageError}
+                  className="book-image"
+                />
+                <div className="image-overlay"></div>
+              </div>
+              <div className="book-info">
+                <h4 className="book-title">{book.title}</h4>
+                <p className="book-author">{book.description}</p>
+                <div className="book-status">
+                  <span className="status-badge available">
+                    ✅ Available
+                  </span>
+                </div>
                 {book.owner !== currentUser.id && (
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs transition-colors">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs transition-colors mt-2">
                     Borrow
                   </button>
                 )}

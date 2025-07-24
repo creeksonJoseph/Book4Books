@@ -34,11 +34,22 @@ function App() {
     <Router>
       <div className="min-h-screen bg-green-900" style={{ 
         backgroundColor: '#14532d', 
+        backgroundImage: 'url(/library.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        backgroundRepeat: 'no-repeat',
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'flex-start',
+        width: '100vw',
+        margin: 0,
+        padding: 0,
+        position: 'relative',
+        opacity: 1,
+        transition: 'opacity 0.5s ease-in-out'
       }}>
         {/* Header */}
         <header className="text-center py-8 border-b border-emerald-700">
