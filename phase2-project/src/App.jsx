@@ -1,95 +1,34 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import BookPlaylist from './components/BookPlaylist'
-import BookDetails from './components/BookDetails'
-import ExchangePage from './components/ExchangePage'
-import SplashScreen from './components/SplashScreen'
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [books, setBooks] = useState([])
-  const [showSplash, setShowSplash] = useState(true)
-  const currentUser = { id: "user1" }
-
-  useEffect(() => {
-    fetch('/db.json')
-      .then(response => response.json())
-      .then(data => setBooks(data))
-      .catch(error => console.error('Error:', error))
-  }, [])
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false)
-    }, 15000) // 15 seconds
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (showSplash) {
-    return <SplashScreen />
-  }
+  const [count, setCount] = useState(0)
 
   return (
-    <Router>
-      <div className="min-h-screen bg-green-900" style={{ 
-        backgroundColor: '#14532d', 
-        backgroundImage: 'url(/library.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        width: '100vw',
-        margin: 0,
-        padding: 0,
-        position: 'relative',
-        opacity: 1,
-        transition: 'opacity 0.5s ease-in-out'
-      }}>
-        {/* Header */}
-        <header className="text-center py-8 border-b border-emerald-700">
-          <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-6xl font-bold text-emerald-100 mb-4 drop-shadow-2xl">
-              📖 Book Library
-            </h1>
-            <p className="text-emerald-300 text-lg">
-              Discover, borrow, and share amazing books with your community
-            </p>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          width: '100%',
-          maxWidth: '1200px'
-        }}>
-          <Routes>
-            <Route path="/" element={
-              <>
-                <div className="flex-1 p-8 border-b border-emerald-700">
-                  <div className="max-w-7xl mx-auto">
-                    <BookPlaylist books={books} />
-                  </div>
-                </div>
-                <div className="flex-1 p-8">
-                  <div className="max-w-7xl mx-auto">
-                    <ExchangePage books={books} currentUser={currentUser} />
-                  </div>
-                </div>
-              </>
-            } />
-            <Route path="/book/:id" element={<BookDetails books={books} currentUser={currentUser} />} />
-          </Routes>
-        </main>
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-    </Router>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
 }
 
