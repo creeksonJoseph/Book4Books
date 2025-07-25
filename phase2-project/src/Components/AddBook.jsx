@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import bg from "../assets/creative-composition-world-book-day.jpg";
 import { API_URL } from "../App";
+import "./AddBook.css";
 
 function AddBook({ onAddBook }) {
   const [formData, setFormData] = useState({
@@ -60,41 +61,18 @@ function AddBook({ onAddBook }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
-    <div
-      className="bg-cover bg-center min-h-screen flex justify-center items-center px-4 py-10"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          backgroundImage: `
-      linear-gradient(
-        to bottom right,
-        rgba(6, 95, 70, 0.7),
-        rgba(0, 0, 0, 0.7),
-        rgba(31, 41, 55, 0.7)
-      ),
-      url('${bg}')
-    `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          color: "white",
-        }}
-        className="text-white p-10 rounded-xl shadow-xl w-full max-w-4xl backdrop-blur-md border border-white/20"
-      >
-        <h2 className="text-3xl font-bold mb-8 text-center">Add a Book</h2>
+    <div className="add-book-container" style={{ backgroundImage: `url(${bg})` }}>
+      <form onSubmit={handleSubmit} className="add-book-form" style={{ backgroundImage: `url(${bg})` }}>
+        <h2 className="form-title">Add a Book</h2>
         {successMessage && (
-          <div className="mb-6 text-center text-green-400 font-semibold">
+          <div className="success-message">
             {successMessage}
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Side */}
-          <div>
-            <label htmlFor="title" className="block font-semibold mb-1">
+        <div className="form-grid">
+          <div className="form-left">
+            <label htmlFor="title" className="form-label">
               Book Title
             </label>
             <input
@@ -105,10 +83,10 @@ function AddBook({ onAddBook }) {
               value={formData.title}
               onChange={handleChange}
               required
-              className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+              className="form-input"
             />
 
-            <label htmlFor="author" className="block font-semibold mb-1">
+            <label htmlFor="author" className="form-label">
               Author
             </label>
             <input
@@ -119,10 +97,10 @@ function AddBook({ onAddBook }) {
               value={formData.author}
               onChange={handleChange}
               required
-              className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+              className="form-input"
             />
 
-            <label htmlFor="synopsis" className="block font-semibold mb-1">
+            <label htmlFor="synopsis" className="form-label">
               Synopsis
             </label>
             <input
@@ -133,10 +111,10 @@ function AddBook({ onAddBook }) {
               value={formData.synopsis}
               onChange={handleChange}
               required
-              className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+              className="form-input"
             />
 
-            <label htmlFor="contacts" className="block font-semibold mb-1">
+            <label htmlFor="contacts" className="form-label">
               Contact Info
             </label>
             <input
@@ -147,16 +125,12 @@ function AddBook({ onAddBook }) {
               value={formData.contacts}
               onChange={handleChange}
               required
-              className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+              className="form-input"
             />
           </div>
 
-          {/* Right Side */}
-          <div>
-            <label
-              htmlFor="full_description"
-              className="block font-semibold mb-1"
-            >
+          <div className="form-right">
+            <label htmlFor="full_description" className="form-label">
               Full Description
             </label>
             <textarea
@@ -167,13 +141,10 @@ function AddBook({ onAddBook }) {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black resize-none"
+              className="form-textarea"
             />
 
-            <label
-              htmlFor="cover_image_url"
-              className="block font-semibold mb-1"
-            >
+            <label htmlFor="cover_image_url" className="form-label">
               Cover Image URL
             </label>
             <input
@@ -184,16 +155,12 @@ function AddBook({ onAddBook }) {
               value={formData.cover_image_url}
               onChange={handleChange}
               required
-              className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+              className="form-input"
             />
           </div>
         </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="mt-6 w-full py-3 rounded-lg bg-emerald-800 hover:bg-emerald-700 font-semibold transition"
-        >
+        <button type="submit" disabled={isSubmitting} className="submit-button">
           {isSubmitting ? "Adding..." : "Add Book"}
         </button>
       </form>

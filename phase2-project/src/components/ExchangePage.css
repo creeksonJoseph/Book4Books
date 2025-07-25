@@ -1,0 +1,167 @@
+.exchange-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.exchange-header {
+  text-align: center;
+}
+
+.exchange-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  background: linear-gradient(to right, #5eead4, #6ee7b7, #86efac);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.title-underline {
+  width: 8rem;
+  height: 0.25rem;
+  background: linear-gradient(to right, #14b8a6, #10b981);
+  margin: 0 auto;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.borrowed-section,
+.available-section {
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6ee7b7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.book-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+}
+
+.image-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.book-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
+  border-radius: 0.5rem;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+
+.book-author {
+  color: #d1d5db;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.book-status {
+  margin: 0.5rem 0;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-badge.borrowed {
+  background-color: #fbbf24;
+  color: #92400e;
+}
+
+.status-badge.available {
+  background-color: #10b981;
+  color: white;
+}
+
+.return-button {
+  background-color: #10b981;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.return-button:hover {
+  background-color: #047857;
+}
+
+.borrow-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.borrow-button:hover {
+  background-color: #1d4ed8;
+}
+
+.no-books-text {
+  text-align: center;
+  color: #6ee7b7;
+  font-size: 1.125rem;
+}

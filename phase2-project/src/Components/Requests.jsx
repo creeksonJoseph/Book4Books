@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { API_URL } from "../App";
 import bg from "../assets/creative-composition-world-book-day.jpg";
+import "./Requests.css";
 
 function Requests() {
   const [requests, setRequests] = useState([]);
   const [books, setBooks] = useState([]);
   const [users, setUsers] = useState([]);
 
-  // Fetch all data on mount
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +28,6 @@ function Requests() {
     fetchData();
   }, []);
 
-  // Helper to get user name by ID
   const getUserName = (id) => {
     const user = users.find((u) => String(u.id) === String(id));
     return user ? user.name : `User ${id}`;
@@ -60,7 +59,6 @@ function Requests() {
         }),
       ]);
 
-      // Refresh state
       setRequests((prev) =>
         prev.map((req) =>
           req.id === requestId ? { ...req, status: newStatus } : req
@@ -77,35 +75,17 @@ function Requests() {
   };
 
   return (
-    <div
-      className="min-h-screen w-full flex flex-col items-center px-4 py-10 relative"
-      style={{
-        backgroundImage: `
-      linear-gradient(
-        to bottom right,
-        rgba(6, 95, 70, 0.7),
-        rgba(0, 0, 0, 0.7),
-        rgba(31, 41, 55, 0.7)
-      ),
-      url('${bg}')
-    `,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        color: "white",
-      }}
-    >
-      <h1 className="text-4xl font-bold mb-8 text-center">Book Requests</h1>
+    <div className="requests-container" style={{ backgroundImage: `url(${bg})` }}>
+      <h1 className="requests-title">Book Requests</h1>
 
       {requests.length === 0 ? (
-        <div className="bg-emerald-950/60 border border-emerald-700 rounded-xl p-8 text-center max-w-md w-full shadow-lg">
-          <p className="text-lg text-gray-300">
+        <div className="no-requests">
+          <p className="no-requests-text">
             No exchange requests at the moment.
           </p>
         </div>
       ) : (
-        <div className="w-full max-w-3xl space-y-6">
+        <div className="requests-list">
           {requests.map((request) => {
             const book = books.find(
               (b) => String(b.id) === String(request.bookId)
@@ -115,29 +95,26 @@ function Requests() {
             const requesterName = getUserName(request.requesterId);
 
             return (
-              <div
-                key={request.id}
-                className="bg-emerald-950/60 rounded-xl p-6 shadow-lg border border-emerald-800"
-              >
-                <p className="mb-2 text-lg">
-                  <span className="font-semibold text-emerald-400">
+              <div key={request.id} className="request-card">
+                <p className="request-text">
+                  <span className="requester-name">
                     {requesterName}
                   </span>{" "}
                   wants to borrow{" "}
-                  <span className="font-bold text-white">"{book.title}"</span>.
+                  <span className="book-title">"{book.title}"</span>.
                 </p>
-                <p className="mb-4 text-gray-400 italic">
+                <p className="request-status">
                   Status: {request.status}
                 </p>
 
-                <div className="flex gap-4">
+                <div className="request-actions">
                   {(request.status === "Pending" ||
                     request.status === "Declined") && (
                     <button
                       onClick={() =>
                         handleToggleStatus(request.id, book.id, request.status)
                       }
-                      className="px-4 py-2 rounded-lg bg-green-800 hover:bg-green-600 transition font-semibold"
+                      className="accept-button"
                     >
                       Accept
                     </button>
@@ -148,7 +125,7 @@ function Requests() {
                       onClick={() =>
                         handleToggleStatus(request.id, book.id, request.status)
                       }
-                      className="px-4 py-2 rounded-lg bg-gray-400 hover:bg-gray-200 text-black font-semibold transition"
+                      className="decline-button"
                     >
                       Decline
                     </button>

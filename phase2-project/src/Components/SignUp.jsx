@@ -3,6 +3,7 @@ import bg from "../assets/creative-composition-world-book-day.jpg";
 import SignupRedirect from "./SignUpRedirect";
 import { API_URL } from "../App";
 import { useNavigate } from "react-router-dom";
+import "./SignUp.css";
 
 function Signup({ onSignup }) {
   const [formData, setFormData] = useState({
@@ -27,7 +28,6 @@ function Signup({ onSignup }) {
 
     const { username, email, password, confirmPassword } = formData;
 
-    // Validation
     if (!username || !email || !password || !confirmPassword) {
       setError("All fields are required");
       setIsSubmitting(false);
@@ -40,7 +40,6 @@ function Signup({ onSignup }) {
       return;
     }
 
-    // Submit to server
     try {
       const res = await fetch(`${API_URL}users`, {
         method: "POST",
@@ -52,7 +51,6 @@ function Signup({ onSignup }) {
 
       if (!res.ok) throw new Error("Failed to signup");
 
-      // Clear form
       setFormData({
         username: "",
         email: "",
@@ -70,82 +68,60 @@ function Signup({ onSignup }) {
   };
 
   return (
-    <div
-      className="bg-cover bg-center min-h-screen flex justify-center items-center px-4 py-10"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          backgroundImage: `
-            linear-gradient(
-              to bottom right,
-              rgba(6, 95, 70, 0.7),
-              rgba(0, 0, 0, 0.7),
-              rgba(31, 41, 55, 0.7)
-            ),
-            url('${bg}')
-          `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          color: "white",
-        }}
-        className="text-white p-10 rounded-xl shadow-xl w-full max-w-md backdrop-blur-md border border-white/20"
-      >
-        <h2 className="text-3xl font-bold mb-8 text-center">Sign Up</h2>
+    <div className="signup-container" style={{ backgroundImage: `url(${bg})` }}>
+      <form onSubmit={handleSubmit} className="signup-form" style={{ backgroundImage: `url(${bg})` }}>
+        <h2 className="signup-title">Sign Up</h2>
 
         {error && (
-          <div className="mb-4 text-center text-red-400 font-semibold">
+          <div className="error-message">
             {error}
           </div>
         )}
 
-        <label className="block font-semibold mb-1">Username</label>
+        <label className="form-label">Username</label>
         <input
           type="text"
           name="username"
           value={formData.username}
           onChange={handleChange}
           placeholder="yourname"
-          className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+          className="form-input"
         />
 
-        <label className="block font-semibold mb-1">Email</label>
+        <label className="form-label">Email</label>
         <input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
           placeholder="you@example.com"
-          className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+          className="form-input"
         />
 
-        <label className="block font-semibold mb-1">Password</label>
+        <label className="form-label">Password</label>
         <input
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
           placeholder="********"
-          className="w-full mb-4 px-4 py-2 rounded-lg bg-gray-400 text-black"
+          className="form-input"
         />
 
-        <label className="block font-semibold mb-1">Confirm Password</label>
+        <label className="form-label">Confirm Password</label>
         <input
           type="password"
           name="confirmPassword"
           value={formData.confirmPassword}
           onChange={handleChange}
           placeholder="********"
-          className="w-full mb-6 px-4 py-2 rounded-lg bg-gray-400 text-black"
+          className="form-input"
         />
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-3 rounded-lg bg-emerald-800 hover:bg-emerald-700 font-semibold transition"
+          className="submit-button"
         >
           {isSubmitting ? "Creating Account..." : "Sign Up"}
         </button>

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import './BookPlaylist.css'
+import './ExchangePage.css'
 
 function ExchangePage({ books, currentUser }) {
   const borrowedBooks = books.filter(book => book.borrower === currentUser.id)
@@ -11,17 +11,16 @@ function ExchangePage({ books, currentUser }) {
   }
 
   return (
-    <div className="space-y-12">
-      <div className="text-center">
-        <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-300 to-green-300 mb-4 animate-pulse">
+    <div className="exchange-page">
+      <div className="exchange-header">
+        <h2 className="exchange-title">
           🔄 Book Exchange Hub
         </h2>
-        <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 mx-auto rounded-full shadow-lg"></div>
+        <div className="title-underline"></div>
       </div>
 
-      {/* Borrowed Books Section */}
-      <div className="mt-8">
-        <h3 className="text-2xl font-bold text-emerald-300 mb-6 text-center">
+      <div className="borrowed-section">
+        <h3 className="section-title">
           📚 My Borrowed Books ({borrowedBooks.length})
         </h3>
         {borrowedBooks.length > 0 ? (
@@ -45,7 +44,7 @@ function ExchangePage({ books, currentUser }) {
                       📚 Borrowed
                     </span>
                   </div>
-                  <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded text-xs transition-colors mt-2">
+                  <button className="return-button">
                     Return
                   </button>
                 </div>
@@ -53,13 +52,12 @@ function ExchangePage({ books, currentUser }) {
             ))}
           </div>
         ) : (
-          <p className="text-center text-emerald-300 text-lg">No borrowed books yet</p>
+          <p className="no-books-text">No borrowed books yet</p>
         )}
       </div>
 
-      {/* Available Books Section */}
-      <div className="mt-12">
-        <h3 className="text-2xl font-bold text-emerald-300 mb-6 text-center">
+      <div className="available-section">
+        <h3 className="section-title">
           ✅ Available Books ({availableBooks.length})
         </h3>
         <div className="book-grid">
@@ -83,7 +81,7 @@ function ExchangePage({ books, currentUser }) {
                   </span>
                 </div>
                 {book.owner !== currentUser.id && (
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs transition-colors mt-2">
+                  <button className="borrow-button">
                     Borrow
                   </button>
                 )}
