@@ -108,29 +108,45 @@
       "email": "mannomedy@gmail.com",
       "password": "12345678",
       "id": "et3WdP3"
+    },
+    {
+      "username": "medy",
+      "email": "mannomedy@gmail.com",
+      "password": "12345678",
+      "id": "6R-zpIE"
+    },
+    {
+      "username": "mann0",
+      "email": "mannomedy@gmail.com",
+      "password": "12345678",
+      "id": "-yq8kAI"
     }
   ],
   "books": [
     {
-      "id": "b1",
-      "title": "The Hobbit",
-      "description": "A fantasy novel about Bilbo Baggins' unexpected adventure.",
-      "coverImageUrl": "http://dummyimage.com/200x300.png/5fa2dd/ffffff",
-      "owner": "user1",
-      "contact": "user1@email.com",
-      "status": "read"
-    },
-    {
-      "id": "b2",
-      "title": "1984",
-      "description": "A dystopian social science fiction novel.",
-      "coverImageUrl": "http://dummyimage.com/200x300.png/cc0000/ffffff",
-      "owner": "user2",
-      "contact": "user2@email.com",
-      "status": "available"
-    },
-    {
       "id": "1",
+      "title": "The Hobbit",
+      "synopsis": "A fantasy novel about Bilbo Baggins' unexpected adventure.",
+      "full_description": "Bilbo Baggins joins a company of dwarves to reclaim their mountain home from the dragon Smaug, discovering courage and adventure along the way.",
+      "cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMqejpZctU2XaQl_511Axfo94F2xLRpS9gig&s",
+      "author": "J.R.R. Tolkien",
+      "contacts": "user1@email.com",
+      "available": false,
+      "ownerId": "user1"
+    },
+    {
+      "id": "2",
+      "title": "1984",
+      "synopsis": "A dystopian future ruled by surveillance and oppression.",
+      "full_description": "George Orwell's chilling novel about a totalitarian regime and the power of Big Brother.",
+      "cover_image_url": "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg",
+      "author": "George Orwell",
+      "contacts": "user2@email.com",
+      "available": true,
+      "ownerId": "user2"
+    },
+    {
+      "id": "3",
       "title": "Atomic Habits",
       "synopsis": "An easy & proven way to build good habits and break bad ones.",
       "full_description": "James Clear explains practical strategies to form habits that stick, with science-backed methods and real-life stories.",
@@ -141,40 +157,29 @@
       "ownerId": "1"
     },
     {
-      "id": "2",
+      "id": "4",
       "title": "The Alchemist",
       "synopsis": "A young shepherd embarks on a journey to fulfill his destiny.",
       "full_description": "Paulo Coelho's spiritual adventure that teaches about listening to your heart and following dreams.",
       "cover_image_url": "https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UF1000,1000_QL80_.jpg",
       "author": "Paulo Coelho",
       "contacts": "198.188.109.160",
-      "available": true,
+      "available": false,
       "ownerId": "2"
     },
     {
-      "id": "3",
-      "title": "1984",
-      "synopsis": "A dystopian future ruled by surveillance and oppression.",
-      "full_description": "George Orwell's chilling novel about a totalitarian regime and the power of Big Brother.",
-      "cover_image_url": "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg",
-      "author": "George Orwell",
-      "contacts": "220.120.155.194",
-      "available": true,
-      "ownerId": "1"
-    },
-    {
-      "id": "4",
+      "id": "5",
       "title": "The Subtle Art of Not Giving a F*ck",
       "synopsis": "A no-BS guide to living a better life by caring less.",
       "full_description": "Mark Manson delivers a brutally honest take on happiness, struggles, and finding value in the right things.",
-      "cover_image_url": "https://m.media-amazon.com/images/I/81A7hPZtEIL._AC_UF1000,1000_QL80_.jpg",
+      "cover_image_url": "https://cdnattic.atticbooks.co.ke/img/J705382.jpg",
       "author": "Mark Manson",
       "contacts": "131.70.198.118",
       "available": false,
       "ownerId": "2"
     },
     {
-      "id": "5",
+      "id": "6",
       "title": "Sapiens: A Brief History of Humankind",
       "synopsis": "A deep dive into how Homo sapiens came to dominate the Earth.",
       "full_description": "Yuval Noah Harari explores human history from the Stone Age to the present, blending science, history, and philosophy.",
@@ -185,23 +190,23 @@
       "ownerId": "1"
     },
     {
-      "id": "6",
+      "id": "7",
       "title": "Pride and Prejudice",
-      "author": "Jane Austen",
       "synopsis": "A timeless novel exploring social class and romance in 19th-century England.",
-      "full_description": "Jane's Austen's delightfully scathing satire on class, pride, and proper behavior is as beloved today as it was when first published in 1813.",
+      "full_description": "Jane Austen's delightfully scathing satire on class, pride, and proper behavior is as beloved today as it was when first published in 1813.",
       "cover_image_url": "https://images.unsplash.com/photo-1604866830893-c13cafa515d5?w=500&auto=format&fit=crop&q=60",
+      "author": "Jane Austen",
       "contacts": "1234567",
       "available": false,
       "ownerId": "1"
     },
     {
-      "id": "7",
+      "id": "8",
       "title": "To Kill a Mockingbird",
-      "author": "Harper Lee",
       "synopsis": "A Southern Gothic novel tackling racism and justice.",
       "full_description": "The plot and characters are loosely based on Lee's observations of her family, neighbors, and an event that occurred near her hometown in 1936.",
       "cover_image_url": "https://images.unsplash.com/photo-1705721357357-ab87523248f7?w=500&auto=format&fit=crop&q=60",
+      "author": "Harper Lee",
       "contacts": "1234566",
       "available": true,
       "ownerId": "1"
@@ -213,7 +218,7 @@
       "bookId": "2",
       "requesterId": "1",
       "ownerId": "2",
-      "status": "Declined"
+      "status": "Accepted"
     },
     {
       "id": "2",
@@ -271,5 +276,6 @@
       "ownerId": "1",
       "status": "Approved"
     }
-  ]
+  ],
+  "borrowedBooks": []
 }
