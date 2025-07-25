@@ -3,7 +3,7 @@ import bg from "../assets/creative-composition-world-book-day.jpg";
 import LoginRedirect from "./LoginRedirect.jsx";
 import { Navigate, useNavigate } from "react-router-dom";
 
-function Login({ onLogin }) {
+function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -28,9 +28,8 @@ function Login({ onLogin }) {
     }
 
     try {
-      onLogin?.(formData);
-
-      //Navigate to dashboard after fake login
+      // Fake login logic
+      setIsLoggedIn(true);
       navigate("/dashboard");
     } catch (err) {
       setError("Login failed. Please try again.");

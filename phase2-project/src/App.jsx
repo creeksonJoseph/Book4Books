@@ -17,11 +17,11 @@ import Signup from "./Components/SignUp";
 import "./App.css";
 
 export const API_URL = "http://localhost:3001/";
-
 function App() {
   const [books, setBooks] = useState([]);
   const [showSplash, setShowSplash] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // track if user is logged in
   const currentUser = { id: "user1" };
 
   useEffect(() => {
@@ -68,10 +68,13 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {isLoggedIn && <Navbar />}
       <Routes>
-        <Route path="/" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Signup setIsLoggedIn={setIsLoggedIn} />} />
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/requests" element={<Requests />} />
