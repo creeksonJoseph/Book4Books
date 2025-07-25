@@ -48,19 +48,14 @@ const Dashboard = () => {
         <div className="card-grid">
           {books.map((book) => (
             <Link key={book.id} to={`/book/${book.id}`} className="book-card">
-              <img
-                src={book.coverImageUrl || book.cover_image_url || 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover'}
-                alt={book.title}
-                style={{
-                  width: "100%",
-                  height: "200px",
-                  objectFit: "cover",
-                  borderRadius: "8px",
-                }}
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover';
-                }}
-              />
+            <img
+              src={book.coverImageUrl || book.cover_image_url || 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover'}
+              alt={book.title}
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover';
+              }}
+            />
+
               <h3 style={{ color: "white", margin: "1rem 0 0.5rem 0" }}>{book.title}</h3>
               <p style={{ fontStyle: "italic", fontSize: "0.85rem", color: "white" }}>
                 {book.synopsis || book.description || 'No description available'}

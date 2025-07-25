@@ -97,6 +97,12 @@
     {
       "id": "user2",
       "name": "Book Owner"
+    },
+    {
+      "username": "medy",
+      "email": "mannomedy@gmail.com",
+      "password": "12345678",
+      "id": "1wo9Pbz"
     }
   ],
   "requests": [
