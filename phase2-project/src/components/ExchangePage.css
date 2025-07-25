@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  background-image: url('/images/library 2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 2rem;
 }
 
 .exchange-header {

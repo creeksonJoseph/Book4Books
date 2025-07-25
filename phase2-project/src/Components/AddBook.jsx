@@ -23,7 +23,7 @@ function AddBook({ onAddBook }) {
     const newBook = {
       ...formData,
       available: true,
-      ownerId: 1, // replace with real user ID later
+      ownerId: 1,
     };
 
     try {

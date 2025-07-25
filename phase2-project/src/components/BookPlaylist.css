@@ -5,6 +5,11 @@
   gap: 2rem;
   width: 100%;
   max-width: none;
+  background-image: url('/images/library.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .header {

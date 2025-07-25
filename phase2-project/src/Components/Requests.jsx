@@ -8,24 +8,28 @@ function Requests() {
   const [books, setBooks] = useState([]);
   const [users, setUsers] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const [booksRes, requestsRes, usersRes] = await Promise.all([
+        fetch(`${API_URL}books`).then((r) => r.json()),
+        fetch(`${API_URL}requests`).then((r) => r.json()),
+        fetch(`${API_URL}users`).then((r) => r.json()),
+      ]);
+
+      setBooks(booksRes);
+      setRequests(requestsRes);
+      setUsers(usersRes);
+    } catch (error) {
+      console.error("Error loading data:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [booksRes, requestsRes, usersRes] = await Promise.all([
-          fetch(`${API_URL}books`).then((r) => r.json()),
-          fetch(`${API_URL}requests`).then((r) => r.json()),
-          fetch(`${API_URL}users`).then((r) => r.json()),
-        ]);
-
-        setBooks(booksRes);
-        setRequests(requestsRes);
-        setUsers(usersRes);
-      } catch (error) {
-        console.error("Error loading data:", error);
-      }
-    };
-
     fetchData();
+    
+    const interval = setInterval(fetchData, 2000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   const getUserName = (id) => {

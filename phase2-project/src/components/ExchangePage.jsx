@@ -1,6 +1,7 @@
 
 import React from 'react'
 import './ExchangePage.css'
+import { API_URL } from '../App'
 
 function ExchangePage({ books, currentUser }) {
   const borrowedBooks = books.filter(book => book.borrower === currentUser.id)
@@ -8,6 +9,58 @@ function ExchangePage({ books, currentUser }) {
 
   const handleImageError = (e) => {
     e.target.src = 'https://via.placeholder.com/200x300/065f46/ffffff?text=No+Image'
+  }
+
+  const handleBorrow = async (book) => {
+    try {
+      const newRequest = {
+        bookId: book.id,
+        requesterId: currentUser.id,
+        status: "Pending"
+      }
+
+      const response = await fetch(`${API_URL}requests`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRequest),
+      })
+
+      if (response.ok) {
+        alert(`Request sent for "${book.title}"!`)
+      } else {
+        alert("Failed to send request. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error creating request:", error)
+      alert("Failed to send request. Please try again.")
+    }
+  }
+
+  const handleReturn = async (book) => {
+    try {
+      const response = await fetch(`${API_URL}books/${book.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ 
+          status: "available",
+          borrower: null
+        }),
+      })
+
+      if (response.ok) {
+        alert(`"${book.title}" has been returned!`)
+        window.location.reload()
+      } else {
+        alert("Failed to return book. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error returning book:", error)
+      alert("Failed to return book. Please try again.")
+    }
   }
 
   return (
@@ -44,7 +97,10 @@ function ExchangePage({ books, currentUser }) {
                       📚 Borrowed
                     </span>
                   </div>
-                  <button className="return-button">
+                  <button 
+                    className="return-button"
+                    onClick={() => handleReturn(book)}
+                  >
                     Return
                   </button>
                 </div>
@@ -81,7 +137,10 @@ function ExchangePage({ books, currentUser }) {
                   </span>
                 </div>
                 {book.owner !== currentUser.id && (
-                  <button className="borrow-button">
+                  <button 
+                    className="borrow-button"
+                    onClick={() => handleBorrow(book)}
+                  >
                     Borrow
                   </button>
                 )}

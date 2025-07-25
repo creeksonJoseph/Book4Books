@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../App.css";
 import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
-import { API_URL } from "../App";
 
 const BookPage = () => {
   const { id } = useParams();
@@ -10,12 +9,20 @@ const BookPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_URL}${id}`)
+    fetch("/db.json")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch book data");
         return res.json();
       })
-      .then((data) => setBook(data))
+      .then((data) => {
+        const booksData = Array.isArray(data) ? data : data.books || [];
+        const foundBook = booksData.find(book => book.id === id);
+        if (foundBook) {
+          setBook(foundBook);
+        } else {
+          throw new Error("Book not found");
+        }
+      })
       .catch((err) => setError(err.message));
   }, [id]);
 
@@ -34,27 +41,39 @@ const BookPage = () => {
         padding: "40px",
       }}
     >
+      <Link to="/dashboard" style={{ color: "white", textDecoration: "none", marginBottom: "20px", display: "block" }}>
+        ← Back to Dashboard
+      </Link>
       <div className="book-detail">
         <img
-          src={book.cover_image_url}
+          src={book.coverImageUrl || book.cover_image_url || 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover'}
           alt={book.title}
           style={{
             width: "100%",
+            maxWidth: "300px",
             height: "auto",
             borderRadius: "8px",
             marginBottom: "20px",
           }}
+          onError={(e) => {
+            e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover';
+          }}
         />
-        <h2>{book.title}</h2>
-        <p>
-          <strong>Author:</strong> {book.author}
+        <h2 style={{ color: "white" }}>{book.title}</h2>
+        <p style={{ color: "white" }}>
+          <strong>Author:</strong> {book.author || 'Unknown Author'}
         </p>
-        <p>
-          <strong>Genre:</strong> {book.genre}
+        <p style={{ color: "white" }}>
+          <strong>Description:</strong> {book.description || book.synopsis || 'No description available'}
         </p>
-        <p>
-          <strong>Synopsis:</strong> {book.synopsis}
+        <p style={{ color: "white" }}>
+          <strong>Status:</strong> {book.status || 'Available'}
         </p>
+        {book.genre && (
+          <p style={{ color: "white" }}>
+            <strong>Genre:</strong> {book.genre}
+          </p>
+        )}
       </div>
     </div>
   );
