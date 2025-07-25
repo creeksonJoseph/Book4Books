@@ -1,9 +1,8 @@
-// src/components/BookPage.js
-
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
 import { API_URL } from "../App";
+import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
+import "../App.css";
 
 const BookPage = ({ currentUser }) => {
   const { id } = useParams();
@@ -17,7 +16,13 @@ const BookPage = ({ currentUser }) => {
         if (!res.ok) throw new Error("Failed to fetch book data");
         return res.json();
       })
-      .then((data) => setBook(data))
+      .then((foundBook) => {
+        if (foundBook) {
+          setBook(foundBook);
+        } else {
+          throw new Error("Book not found");
+        }
+      })
       .catch((err) => setError(err.message));
   }, [id]);
 
@@ -30,7 +35,7 @@ const BookPage = ({ currentUser }) => {
     const borrowData = {
       bookId: book.id,
       title: book.title,
-      coverImageUrl: book.cover_image_url,
+      coverImageUrl: book.cover_image_url || book.coverImageUrl,
       contact: book.contacts || "N/A",
       status: "pending",
       borrowerId: currentUser.id,
@@ -89,7 +94,7 @@ const BookPage = ({ currentUser }) => {
 
       <div className="book-detail" style={{ maxWidth: "600px", margin: "auto" }}>
         <img
-          src={book.cover_image_url}
+          src={book.coverImageUrl || book.cover_image_url || "https://picsum.photos/300/400?random=1"}
           alt={book.title}
           style={{
             width: "100%",
@@ -100,10 +105,14 @@ const BookPage = ({ currentUser }) => {
             margin: "0 auto 20px",
             display: "block",
           }}
+          onError={(e) => {
+            e.target.src = "https://picsum.photos/300/400?random=2";
+          }}
         />
         <h2>{book.title}</h2>
-        <p><strong>Author:</strong> {book.author}</p>
-        <p><strong>Description:</strong> {book.full_description}</p>
+        <p><strong>Author:</strong> {book.author || "Unknown Author"}</p>
+        <p><strong>Description:</strong> {book.full_description || book.synopsis || book.description || "No description available"}</p>
+        <p><strong>Status:</strong> {book.available === false ? "Unavailable" : "Available"}</p>
         <p><strong>Contact:</strong> {book.contacts || "Not provided"}</p>
         <button
           onClick={handleBorrow}
@@ -125,4 +134,3 @@ const BookPage = ({ currentUser }) => {
 };
 
 export default BookPage;
-

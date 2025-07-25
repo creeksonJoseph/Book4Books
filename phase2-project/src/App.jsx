@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Components
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import BookPage from "./components/BookPage";
@@ -21,7 +20,7 @@ function App() {
   const [books, setBooks] = useState([]);
   const [showSplash, setShowSplash] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // track if user is logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const currentUser = { id: "user1" };
 
   useEffect(() => {
@@ -79,10 +78,10 @@ function App() {
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/requests" element={<Requests />} />
         <Route path="/book/:id" element={<BookPage />} />
-        <Route path="/mybooks" element={<BookPlaylist books={books} />} />
+        <Route path="/mybooks" element={<BookPlaylist currentUser={currentUser} />} />
         <Route
           path="/exchange"
-          element={<ExchangePage books={books} currentUser={currentUser} />}
+          element={<ExchangePage currentUser={currentUser} />}
         />
         <Route
           path="/bookdetails/:id"

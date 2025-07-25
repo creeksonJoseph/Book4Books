@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../App"; // ✅ Ensure API_URL is imported
 import "../App.css";
 import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
-import { API_URL } from "../App";
 
 const Dashboard = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // ✅ Add error state
 
   useEffect(() => {
     fetch(`${API_URL}books`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch books");
+        return res.json();
+      })
       .then((data) => {
-        setBooks(data);
+        const booksData = Array.isArray(data) ? data : data.books || [];
+        setBooks(booksData);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
         setLoading(false);
       });
   }, []);
 
-  if (loading) return <p>Loading books...</p>;
+  if (loading) return <p style={{ textAlign: "center", color: "white" }}>Loading books...</p>;
+  if (error) return <p style={{ color: "red", textAlign: "center" }}>{error}</p>;
 
   return (
     <div
@@ -31,12 +41,30 @@ const Dashboard = () => {
       }}
     >
       <div className="dashboard-container">
+        <h1 style={{ color: "white", textAlign: "center", marginBottom: "2rem" }}>
+          Book Library
+        </h1>
+
         <div className="card-grid">
           {books.map((book) => (
             <Link key={book.id} to={`/book/${book.id}`} className="book-card">
-              <img src={book.cover_image_url} alt={book.title} />
-              <h3>{book.title}</h3>
-              <p style={{ fontStyle: "italic", fontSize: "0.85rem" }}>{book.synopsis}</p>
+              <img
+                src={book.coverImageUrl || book.cover_image_url || 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover'}
+                alt={book.title}
+                style={{
+                  width: "100%",
+                  height: "200px",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover';
+                }}
+              />
+              <h3 style={{ color: "white", margin: "1rem 0 0.5rem 0" }}>{book.title}</h3>
+              <p style={{ fontStyle: "italic", fontSize: "0.85rem", color: "white" }}>
+                {book.synopsis || book.description || 'No description available'}
+              </p>
             </Link>
           ))}
         </div>

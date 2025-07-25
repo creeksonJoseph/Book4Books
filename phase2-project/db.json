@@ -1,127 +1,4 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "Bianca Mbatha",
-      "email": "bianca@example.com"
-    },
-    {
-      "id": "2",
-      "name": "Creekson Joseph",
-      "email": "creekson@example.com"
-    },
-    {
-      "id": "3",
-      "name": "Nia Okoth",
-      "email": "nia@example.com"
-    },
-    {
-      "id": "4",
-      "name": "Jayden Kip",
-      "email": "jayden@example.com"
-    },
-    {
-      "id": "5",
-      "name": "Maya Atieno",
-      "email": "maya@example.com"
-    },
-    {
-      "id": "a950",
-      "name": "nate james",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "28a5",
-      "name": "MANUU",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "7804",
-      "name": "MANUU",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "1903",
-      "name": "MANUU",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "296f",
-      "name": "MANUU",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "6a88",
-      "name": "MANUU",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "00b6",
-      "name": "MANUU",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "905d",
-      "name": "MANUU",
-      "email": "maryndemo1983@gmail.com",
-      "password": "QWERTY"
-    },
-    {
-      "id": "7e59",
-      "username": "alpha_chronicles",
-      "email": "Josephcreekson@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": "cffc",
-      "username": "john@kiarie",
-      "email": "jogn@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "5074",
-      "username": "creekson",
-      "email": "123@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "a96c",
-      "username": "creekson",
-      "email": "wwww@gmail.com",
-      "password": "1234"
-    },
-    {
-      "username": "medy",
-      "email": "ahmed.mohamed02@student.moringaschool.com",
-      "password": "12345678",
-      "id": "sEdGcKA"
-    },
-    {
-      "username": "medy",
-      "email": "mannomedy@gmail.com",
-      "password": "12345678",
-      "id": "et3WdP3"
-    },
-    {
-      "username": "medy",
-      "email": "mannomedy@gmail.com",
-      "password": "12345678",
-      "id": "6R-zpIE"
-    },
-    {
-      "username": "mann0",
-      "email": "mannomedy@gmail.com",
-      "password": "12345678",
-      "id": "-yq8kAI"
-    }
-  ],
   "books": [
     {
       "id": "1",
@@ -212,69 +89,34 @@
       "ownerId": "1"
     }
   ],
+  "users": [
+    {
+      "id": "user1",
+      "name": "Current User"
+    },
+    {
+      "id": "user2",
+      "name": "Book Owner"
+    }
+  ],
   "requests": [
     {
-      "id": "1",
-      "bookId": "2",
-      "requesterId": "1",
-      "ownerId": "2",
-      "status": "Declined"
+      "id": "req_1753461505659",
+      "bookId": "b16",
+      "requesterId": "user1",
+      "status": "Pending",
+      "bookTitle": "Moby Dick",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T16:38:25.660Z"
     },
     {
-      "id": "2",
-      "bookId": "5",
-      "requesterId": "3",
-      "ownerId": "1",
-      "status": "Declined"
-    },
-    {
-      "id": "3",
-      "bookId": "1",
-      "requesterId": "2",
-      "ownerId": "1",
-      "status": "Approved"
-    },
-    {
-      "id": "4",
-      "bookId": "6",
-      "requesterId": "4",
-      "ownerId": "1",
-      "status": "Accepted"
-    },
-    {
-      "id": "5",
-      "bookId": "3",
-      "requesterId": "1",
-      "ownerId": "1",
-      "status": "Declined"
-    },
-    {
-      "id": "6",
-      "bookId": "7",
-      "requesterId": "5",
-      "ownerId": "1",
-      "status": "Approved"
-    },
-    {
-      "id": "7",
-      "bookId": "6",
-      "requesterId": "3",
-      "ownerId": "1",
-      "status": "Accepted"
-    },
-    {
-      "id": "8",
-      "bookId": "2",
-      "requesterId": "5",
-      "ownerId": "2",
-      "status": "Accepted"
-    },
-    {
-      "id": "9",
-      "bookId": "1",
-      "requesterId": "4",
-      "ownerId": "1",
-      "status": "Approved"
+      "id": "req_1753464007579",
+      "bookId": "b4",
+      "requesterId": "user1",
+      "status": "Accepted",
+      "bookTitle": "To Kill a Mockingbird",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T17:20:07.579Z"
     }
   ],
   "borrowedBooks": []
