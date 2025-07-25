@@ -1,4 +1,3 @@
-/* Global styles */
 body {
   margin: 0;
   padding: 0;
@@ -10,14 +9,12 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-/* App container */
 .app {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-/* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -54,67 +51,56 @@ h1, h2, h3 {
   text-decoration: underline;
 }
 
-/* Dashboard */
-.dashboard-background {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 40px;
-  min-height: 100vh;
-}
-
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Book grid and cards */
-.books-grid,
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
-  justify-content: center;
+  padding: 0 1rem;
 }
 
 .book-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  min-height: 400px;
+  padding: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 
 .book-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
-
 
 .book-card img {
   width: 100%;
-  aspect-ratio: 2./ 3;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
 
-/* Book text info */
+
 .book-card h3 {
   margin: 1rem 0 0.5rem 0;
-  color: #333;
+  color: #ffffff;
+  font-size: 1.2rem;
 }
 
 .book-card p {
-  color: #666;
+  color: #e5e5e5;
   margin-bottom: 1rem;
+  font-style: italic;
+  font-size: 0.85rem; 
 }
+
 
 .book-info {
   display: flex;
@@ -128,7 +114,6 @@ h1, h2, h3 {
   text-decoration: none;
 }
 
-/* Book detail page */
 .book-detail {
   max-width: 700px;
   margin: 40px auto;

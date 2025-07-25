@@ -15,21 +15,18 @@ function BookDetails({ books, currentUser }) {
   };
 
   const getBorrowDate = () => {
-    // Simulate borrow date (in real app, this would come from your data)
     const date = new Date();
     date.setDate(date.getDate() - Math.floor(Math.random() * 30));
     return date.toLocaleDateString();
   };
 
   const getReturnDate = () => {
-    // Simulate return date (typically 2 weeks from borrow date)
     const date = new Date();
     date.setDate(date.getDate() + Math.floor(Math.random() * 14) + 1);
     return date.toLocaleDateString();
   };
 
   const isReadByUser = () => {
-    // Simulate read status (in real app, this would be tracked in user data)
     return Math.random() > 0.5;
   };
 
