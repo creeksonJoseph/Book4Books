@@ -1,96 +1,96 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import BookPlaylist from './components/BookPlaylist'
-import BookDetails from './components/BookDetails'
-import ExchangePage from './components/ExchangePage'
-import SplashScreen from './components/SplashScreen'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Components
+import Navbar from "./components/Navbar";
+import Dashboard from "./components/Dashboard";
+import BookPage from "./components/BookPage";
+import BookDetails from "./components/BookDetails";
+import BookPlaylist from "./components/BookPlaylist";
+import ExchangePage from "./components/ExchangePage";
+import SplashScreen from "./components/SplashScreen";
+import AddBook from "./Components/AddBook";
+import Requests from "./Components/Requests";
+import Login from "./Components/Login";
+import Signup from "./Components/SignUp";
+
+import "./App.css";
+
+export const API_URL = "http://localhost:3001/";
 function App() {
-  const [books, setBooks] = useState([])
-  const [showSplash, setShowSplash] = useState(true)
-  const currentUser = { id: "user1" }
+  const [books, setBooks] = useState([]);
+  const [showSplash, setShowSplash] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // track if user is logged in
+  const currentUser = { id: "user1" };
 
   useEffect(() => {
-    fetch('/db.json')
-      .then(response => response.json())
-      .then(data => setBooks(data))
-      .catch(error => console.error('Error:', error))
-  }, [])
+    fetch("/db.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setBooks(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setIsLoading(false);
+      });
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowSplash(false)
-    }, 15000) // 15 seconds
+      setShowSplash(false);
+    }, 3000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
-  if (showSplash) {
-    return <SplashScreen />
+  if (showSplash) return <SplashScreen />;
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          backgroundColor: "#14532d",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#6ee7b7",
+          fontSize: "1.5rem",
+        }}
+      >
+        Loading your library...
+      </div>
+    );
   }
 
   return (
-    <Router>
-      <div className="min-h-screen bg-green-900" style={{ 
-        backgroundColor: '#14532d', 
-        backgroundImage: 'url(/library.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        width: '100vw',
-        margin: 0,
-        padding: 0,
-        position: 'relative',
-        opacity: 1,
-        transition: 'opacity 0.5s ease-in-out'
-      }}>
-        {/* Header */}
-        <header className="text-center py-8 border-b border-emerald-700">
-          <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-6xl font-bold text-emerald-100 mb-4 drop-shadow-2xl">
-              📖 Book Library
-            </h1>
-            <p className="text-emerald-300 text-lg">
-              Discover, borrow, and share amazing books with your community
-            </p>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          width: '100%',
-          maxWidth: '1200px'
-        }}>
-          <Routes>
-            <Route path="/" element={
-              <>
-                <div className="flex-1 p-8 border-b border-emerald-700">
-                  <div className="max-w-7xl mx-auto">
-                    <BookPlaylist books={books} />
-                  </div>
-                </div>
-                <div className="flex-1 p-8">
-                  <div className="max-w-7xl mx-auto">
-                    <ExchangePage books={books} currentUser={currentUser} />
-                  </div>
-                </div>
-              </>
-            } />
-            <Route path="/book/:id" element={<BookDetails books={books} currentUser={currentUser} />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
-  )
+    <>
+      {isLoggedIn && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Signup setIsLoggedIn={setIsLoggedIn} />} />
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/addbook" element={<AddBook />} />
+        <Route path="/requests" element={<Requests />} />
+        <Route path="/book/:id" element={<BookPage />} />
+        <Route path="/mybooks" element={<BookPlaylist books={books} />} />
+        <Route
+          path="/exchange"
+          element={<ExchangePage books={books} currentUser={currentUser} />}
+        />
+        <Route
+          path="/bookdetails/:id"
+          element={<BookDetails books={books} currentUser={currentUser} />}
+        />
+      </Routes>
+    </>
+  );
 }
 
-export default App
+export default App;
