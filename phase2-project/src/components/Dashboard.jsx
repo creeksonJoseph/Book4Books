@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
-import { API_URL } from "../App";
 
 const Dashboard = () => {
   const [books, setBooks] = useState([]);
@@ -10,7 +9,7 @@ const Dashboard = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_URL}books`)
+    fetch("/db.json")
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -41,7 +40,6 @@ const Dashboard = () => {
       }}
     >
       <div className="dashboard-container">
-        {/* <h1>Dashboard - Your Books</h1> */}
         <div className="card-grid">
           {books.map((book) => (
             <Link key={book.id} to={`/book/${book.id}`} className="book-card">
