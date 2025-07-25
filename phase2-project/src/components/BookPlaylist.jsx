@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../App';
@@ -35,7 +34,7 @@ function BookPlaylist({ currentUser = { id: "user1" } }) {
   }, []);
 
   const handleImageError = (e) => {
-    e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=Book+Cover';
+    e.target.src = 'https://picsum.photos/300/400?random=3';
   };
 
   if (loading) {

@@ -9,6 +9,115 @@
       "owner": "user2",
       "borrower": null,
       "available": false
+    },
+    {
+      "id": "b1",
+      "title": "The Hobbit",
+      "description": "A fantasy novel about Bilbo Baggins' unexpected adventure.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780547928227-M.jpg",
+      "owner": "user1",
+      "borrower": null,
+      "status": "available"
+    },
+    {
+      "id": "b2",
+      "title": "1984",
+      "description": "A dystopian social science fiction novel.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-M.jpg",
+      "owner": "user2",
+      "borrower": "user1",
+      "status": "borrowed"
+    },
+    {
+      "id": "b3",
+      "title": "Design Patterns",
+      "description": "Software engineering design patterns book.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780201633610-M.jpg",
+      "owner": "user1",
+      "borrower": null,
+      "status": "available"
+    },
+    {
+      "id": "b4",
+      "title": "To Kill a Mockingbird",
+      "description": "A gripping tale of racial injustice and childhood innocence.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780060935467-M.jpg",
+      "owner": "user2",
+      "borrower": null,
+      "status": "available",
+      "available": false
+    },
+    {
+      "id": "b5",
+      "title": "The Great Gatsby",
+      "description": "A classic American novel about the Jazz Age.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780743273565-M.jpg",
+      "owner": "user3",
+      "borrower": "user2",
+      "status": "borrowed"
+    },
+    {
+      "id": "b6",
+      "title": "Pride and Prejudice",
+      "description": "A romantic novel about manners and marriage.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780141439518-M.jpg",
+      "owner": "user1",
+      "borrower": null,
+      "status": "available"
+    },
+    {
+      "id": "b7",
+      "title": "The Catcher in the Rye",
+      "description": "A coming-of-age story in New York City.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780316769174-M.jpg",
+      "owner": "user2",
+      "borrower": null,
+      "status": "available"
+    },
+    {
+      "id": "b8",
+      "title": "Lord of the Flies",
+      "description": "A novel about British boys stranded on an island.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780571056866-M.jpg",
+      "owner": "user3",
+      "borrower": "user1",
+      "status": "borrowed"
+    },
+    {
+      "id": "b9",
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "description": "The first book in the magical Harry Potter series.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780439708180-M.jpg",
+      "owner": "user1",
+      "borrower": null,
+      "status": "available"
+    },
+    {
+      "id": "b10",
+      "title": "The Lord of the Rings",
+      "description": "An epic fantasy adventure in Middle-earth.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780544003415-M.jpg",
+      "owner": "user2",
+      "borrower": null,
+      "status": "available"
+    },
+    {
+      "id": "b11",
+      "title": "Brave New World",
+      "description": "A dystopian novel about a technologically advanced society.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780060850524-M.jpg",
+      "owner": "user3",
+      "borrower": "user2",
+      "status": "borrowed"
+    },
+    {
+      "id": "b12",
+      "title": "The Chronicles of Narnia",
+      "description": "A fantasy series about children who discover a magical world.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780064471190-M.jpg",
+      "owner": "user1",
+      "borrower": null,
+      "status": "available"
     }
   ],
   "users": [
@@ -32,49 +141,13 @@
       "createdAt": "2025-07-25T16:38:25.660Z"
     },
     {
-      "id": "req_1753461638565",
-      "bookId": "b10",
-      "requesterId": "user1",
-      "status": "Pending",
-      "bookTitle": "The Lord of the Rings",
-      "requesterName": "Current User",
-      "createdAt": "2025-07-25T16:40:38.565Z"
-    },
-    {
-      "id": "req_1753461697888",
-      "bookId": "b10",
-      "requesterId": "user1",
-      "status": "Pending",
-      "bookTitle": "The Lord of the Rings",
-      "requesterName": "Current User",
-      "createdAt": "2025-07-25T16:41:37.888Z"
-    },
-    {
-      "id": "req_1753461701539",
-      "bookId": "b16",
-      "requesterId": "user1",
-      "status": "Pending",
-      "bookTitle": "Moby Dick",
-      "requesterName": "Current User",
-      "createdAt": "2025-07-25T16:41:41.539Z"
-    },
-    {
-      "id": "req_1753461773303",
-      "bookId": "1",
+      "id": "req_1753464007579",
+      "bookId": "b4",
       "requesterId": "user1",
       "status": "Accepted",
-      "bookTitle": "Sample Book",
+      "bookTitle": "To Kill a Mockingbird",
       "requesterName": "Current User",
-      "createdAt": "2025-07-25T16:42:53.303Z"
-    },
-    {
-      "id": "req_1753462313683",
-      "bookId": "1",
-      "requesterId": "user1",
-      "status": "Accepted",
-      "bookTitle": "Sample Book",
-      "requesterName": "Current User",
-      "createdAt": "2025-07-25T16:51:53.683Z"
+      "createdAt": "2025-07-25T17:20:07.579Z"
     }
   ]
 }

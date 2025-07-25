@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { API_URL } from "../App";
 import "../App.css";
 import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
 
@@ -9,14 +10,12 @@ const BookPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/db.json")
+    fetch(`${API_URL}books/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch book data");
         return res.json();
       })
-      .then((data) => {
-        const booksData = Array.isArray(data) ? data : data.books || [];
-        const foundBook = booksData.find(book => book.id === id);
+      .then((foundBook) => {
         if (foundBook) {
           setBook(foundBook);
         } else {
@@ -46,7 +45,7 @@ const BookPage = () => {
       </Link>
       <div className="book-detail">
         <img
-          src={book.coverImageUrl || book.cover_image_url || 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover'}
+          src={book.coverImageUrl || book.cover_image_url || 'https://picsum.photos/300/400?random=1'}
           alt={book.title}
           style={{
             width: "100%",
@@ -56,7 +55,7 @@ const BookPage = () => {
             marginBottom: "20px",
           }}
           onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover';
+            e.target.src = 'https://picsum.photos/300/400?random=2';
           }}
         />
         <h2 style={{ color: "white" }}>{book.title}</h2>

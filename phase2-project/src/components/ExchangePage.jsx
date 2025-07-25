@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'
 import './ExchangePage.css'
 import { API_URL } from '../App'
@@ -32,7 +31,7 @@ function ExchangePage({ currentUser }) {
   const availableBooks = books.filter(book => book.status === 'available')
 
   const handleImageError = (e) => {
-    e.target.src = 'https://via.placeholder.com/200x300/065f46/ffffff?text=Book+Cover';
+    e.target.src = 'https://picsum.photos/200/300?random=4';
   }
 
   const handleBorrow = async (book) => {
