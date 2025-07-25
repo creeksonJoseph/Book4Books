@@ -29,9 +29,11 @@ function Login({ setIsLoggedIn }) {
     }
 
     try {
+ HEAD
       onLogin?.(formData);
+      // Fake login logic
+      setIsLoggedIn(true);
 
-      //Navigate to dashboard after fake login
       navigate("/dashboard");
     } catch (err) {
       setError("Login failed. Please try again.");

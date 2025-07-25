@@ -15,7 +15,9 @@ const Dashboard = () => {
         return res.json();
       })
       .then((data) => {
-        setBooks(data);
+        // Handle both data structures
+        const booksData = Array.isArray(data) ? data : data.books || [];
+        setBooks(booksData);
         setLoading(false);
       })
       .catch((err) => {
@@ -43,7 +45,13 @@ const Dashboard = () => {
         <div className="card-grid">
           {books.map((book) => (
             <Link key={book.id} to={`/book/${book.id}`} className="book-card">
-              <img src={book.cover_image_url} alt={book.title} />
+              <img 
+                src={book.coverImageUrl || book.cover_image_url} 
+                alt={book.title}
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover';
+                }}
+              />
               <h3>{book.title}</h3>
               <p style={{ fontStyle: "italic", fontSize: "0.85rem" }}>
                 {book.synopsis}
