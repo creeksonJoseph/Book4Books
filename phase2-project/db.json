@@ -2,122 +2,91 @@
   "books": [
     {
       "id": "1",
-      "title": "Sample Book",
-      "description": "A sample book description",
-      "coverImageUrl": "https://via.placeholder.com/300x400",
-      "status": "available",
-      "owner": "user2",
-      "borrower": null,
-      "available": false
-    },
-    {
-      "id": "b1",
       "title": "The Hobbit",
-      "description": "A fantasy novel about Bilbo Baggins' unexpected adventure.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780547928227-M.jpg",
-      "owner": "user1",
-      "borrower": null,
-      "status": "available"
+      "synopsis": "A fantasy novel about Bilbo Baggins' unexpected adventure.",
+      "full_description": "Bilbo Baggins joins a company of dwarves to reclaim their mountain home from the dragon Smaug, discovering courage and adventure along the way.",
+      "cover_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMqejpZctU2XaQl_511Axfo94F2xLRpS9gig&s",
+      "author": "J.R.R. Tolkien",
+      "contacts": "user1@email.com",
+      "available": false,
+      "ownerId": "user1"
     },
     {
-      "id": "b2",
+      "id": "2",
       "title": "1984",
-      "description": "A dystopian social science fiction novel.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-M.jpg",
-      "owner": "user2",
-      "borrower": "user1",
-      "status": "borrowed"
+      "synopsis": "A dystopian future ruled by surveillance and oppression.",
+      "full_description": "George Orwell's chilling novel about a totalitarian regime and the power of Big Brother.",
+      "cover_image_url": "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg",
+      "author": "George Orwell",
+      "contacts": "user2@email.com",
+      "available": true,
+      "ownerId": "user2"
     },
     {
-      "id": "b3",
-      "title": "Design Patterns",
-      "description": "Software engineering design patterns book.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780201633610-M.jpg",
-      "owner": "user1",
-      "borrower": null,
-      "status": "available"
+      "id": "3",
+      "title": "Atomic Habits",
+      "synopsis": "An easy & proven way to build good habits and break bad ones.",
+      "full_description": "James Clear explains practical strategies to form habits that stick, with science-backed methods and real-life stories.",
+      "cover_image_url": "https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg",
+      "author": "James Clear",
+      "contacts": "143.90.219.157",
+      "available": true,
+      "ownerId": "1"
     },
     {
-      "id": "b4",
-      "title": "To Kill a Mockingbird",
-      "description": "A gripping tale of racial injustice and childhood innocence.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780060935467-M.jpg",
-      "owner": "user2",
-      "borrower": null,
-      "status": "available",
-      "available": false
+      "id": "4",
+      "title": "The Alchemist",
+      "synopsis": "A young shepherd embarks on a journey to fulfill his destiny.",
+      "full_description": "Paulo Coelho's spiritual adventure that teaches about listening to your heart and following dreams.",
+      "cover_image_url": "https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UF1000,1000_QL80_.jpg",
+      "author": "Paulo Coelho",
+      "contacts": "198.188.109.160",
+      "available": false,
+      "ownerId": "2"
     },
     {
-      "id": "b5",
-      "title": "The Great Gatsby",
-      "description": "A classic American novel about the Jazz Age.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780743273565-M.jpg",
-      "owner": "user3",
-      "borrower": "user2",
-      "status": "borrowed"
+      "id": "5",
+      "title": "The Subtle Art of Not Giving a F*ck",
+      "synopsis": "A no-BS guide to living a better life by caring less.",
+      "full_description": "Mark Manson delivers a brutally honest take on happiness, struggles, and finding value in the right things.",
+      "cover_image_url": "https://cdnattic.atticbooks.co.ke/img/J705382.jpg",
+      "author": "Mark Manson",
+      "contacts": "131.70.198.118",
+      "available": false,
+      "ownerId": "2"
     },
     {
-      "id": "b6",
+      "id": "6",
+      "title": "Sapiens: A Brief History of Humankind",
+      "synopsis": "A deep dive into how Homo sapiens came to dominate the Earth.",
+      "full_description": "Yuval Noah Harari explores human history from the Stone Age to the present, blending science, history, and philosophy.",
+      "cover_image_url": "https://m.media-amazon.com/images/I/713jIoMO3UL._AC_UF1000,1000_QL80_.jpg",
+      "author": "Yuval Noah Harari",
+      "contacts": "48.220.141.95",
+      "available": true,
+      "ownerId": "1"
+    },
+    {
+      "id": "7",
       "title": "Pride and Prejudice",
-      "description": "A romantic novel about manners and marriage.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780141439518-M.jpg",
-      "owner": "user1",
-      "borrower": null,
-      "status": "available"
+      "synopsis": "A timeless novel exploring social class and romance in 19th-century England.",
+      "full_description": "Jane Austen's delightfully scathing satire on class, pride, and proper behavior is as beloved today as it was when first published in 1813.",
+      "cover_image_url": "https://images.unsplash.com/photo-1604866830893-c13cafa515d5?w=500&auto=format&fit=crop&q=60",
+      "author": "Jane Austen",
+      "contacts": "1234567",
+      "available": false,
+      "ownerId": "1"
     },
     {
-      "id": "b7",
-      "title": "The Catcher in the Rye",
-      "description": "A coming-of-age story in New York City.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780316769174-M.jpg",
-      "owner": "user2",
-      "borrower": null,
-      "status": "available"
-    },
-    {
-      "id": "b8",
-      "title": "Lord of the Flies",
-      "description": "A novel about British boys stranded on an island.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780571056866-M.jpg",
-      "owner": "user3",
-      "borrower": "user1",
-      "status": "borrowed"
-    },
-    {
-      "id": "b9",
-      "title": "Harry Potter and the Sorcerer's Stone",
-      "description": "The first book in the magical Harry Potter series.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780439708180-M.jpg",
-      "owner": "user1",
-      "borrower": null,
-      "status": "available"
-    },
-    {
-      "id": "b10",
-      "title": "The Lord of the Rings",
-      "description": "An epic fantasy adventure in Middle-earth.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780544003415-M.jpg",
-      "owner": "user2",
-      "borrower": null,
-      "status": "available"
-    },
-    {
-      "id": "b11",
-      "title": "Brave New World",
-      "description": "A dystopian novel about a technologically advanced society.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780060850524-M.jpg",
-      "owner": "user3",
-      "borrower": "user2",
-      "status": "borrowed"
-    },
-    {
-      "id": "b12",
-      "title": "The Chronicles of Narnia",
-      "description": "A fantasy series about children who discover a magical world.",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780064471190-M.jpg",
-      "owner": "user1",
-      "borrower": null,
-      "status": "available"
+      "id": "8",
+      "title": "To Kill a Mockingbird",
+      "synopsis": "A Southern Gothic novel tackling racism and justice.",
+      "full_description": "The plot and characters are loosely based on Lee's observations of her family, neighbors, and an event that occurred near her hometown in 1936.",
+      "cover_image_url": "https://images.unsplash.com/photo-1705721357357-ab87523248f7?w=500&auto=format&fit=crop&q=60",
+      "author": "Harper Lee",
+      "contacts": "1234566",
+      "available": true,
+      "ownerId": "1"
     }
   ],
   "users": [
@@ -149,5 +118,6 @@
       "requesterName": "Current User",
       "createdAt": "2025-07-25T17:20:07.579Z"
     }
-  ]
+  ],
+  "borrowedBooks": []
 }

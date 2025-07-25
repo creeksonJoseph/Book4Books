@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../App"; // ✅ Ensure API_URL is imported
 import "../App.css";
 import backgroundImage from "../assets/taylor-D9_QOTmbFAg-unsplash.jpg";
 
 const Dashboard = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // ✅ Add error state
 
   useEffect(() => {
-    fetch("/db.json")
+    fetch(`${API_URL}books`)
       .then((res) => {
-        if (!res.ok) throw new Error("Network response was not ok");
+        if (!res.ok) throw new Error("Failed to fetch books");
         return res.json();
       })
       .then((data) => {
@@ -26,8 +27,7 @@ const Dashboard = () => {
   }, []);
 
   if (loading) return <p style={{ textAlign: "center", color: "white" }}>Loading books...</p>;
-  if (error)
-    return <p style={{ color: "red", textAlign: "center" }}>{error}</p>;
+  if (error) return <p style={{ color: "red", textAlign: "center" }}>{error}</p>;
 
   return (
     <div
@@ -41,14 +41,22 @@ const Dashboard = () => {
       }}
     >
       <div className="dashboard-container">
-        <h1 style={{ color: "white", textAlign: "center", marginBottom: "2rem" }}>Book Library</h1>
+        <h1 style={{ color: "white", textAlign: "center", marginBottom: "2rem" }}>
+          Book Library
+        </h1>
+
         <div className="card-grid">
           {books.map((book) => (
             <Link key={book.id} to={`/book/${book.id}`} className="book-card">
-              <img 
-                src={book.coverImageUrl || book.cover_image_url || 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover'} 
+              <img
+                src={book.coverImageUrl || book.cover_image_url || 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover'}
                 alt={book.title}
-                style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "8px" }}
+                style={{
+                  width: "100%",
+                  height: "200px",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                }}
                 onError={(e) => {
                   e.target.src = 'https://via.placeholder.com/300x400/065f46/ffffff?text=📚+Book+Cover';
                 }}
