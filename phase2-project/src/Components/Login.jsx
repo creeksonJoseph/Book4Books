@@ -4,7 +4,7 @@ import LoginRedirect from "./LoginRedirect.jsx";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./Login.css";
 
-function Login({ onLogin }) {
+function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -30,6 +30,8 @@ function Login({ onLogin }) {
 
     try {
       onLogin?.(formData);
+
+      //Navigate to dashboard after fake login
       navigate("/dashboard");
     } catch (err) {
       setError("Login failed. Please try again.");

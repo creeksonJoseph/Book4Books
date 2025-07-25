@@ -5,7 +5,7 @@ import { API_URL } from "../App";
 import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
-function Signup({ onSignup }) {
+function Signup({ setIsLoggedIn }) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -58,7 +58,8 @@ function Signup({ onSignup }) {
         confirmPassword: "",
       });
 
-      if (onSignup) onSignup();
+      if (setIsLoggedIn) setIsLoggedIn(true);
+
       navigate("/Dashboard");
     } catch (err) {
       setError("Signup failed. Try again.");
