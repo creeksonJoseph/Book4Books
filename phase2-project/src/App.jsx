@@ -78,10 +78,10 @@ function App() {
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/requests" element={<Requests />} />
         <Route path="/book/:id" element={<BookPage />} />
-        <Route path="/mybooks" element={<BookPlaylist books={books} />} />
+        <Route path="/mybooks" element={<BookPlaylist currentUser={currentUser} />} />
         <Route
           path="/exchange"
-          element={<ExchangePage books={books} currentUser={currentUser} />}
+          element={<ExchangePage currentUser={currentUser} />}
         />
         <Route
           path="/bookdetails/:id"

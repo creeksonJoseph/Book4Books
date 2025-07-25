@@ -1,39 +1,80 @@
 {
   "books": [
     {
-      "id": "b1",
-      "title": "The Great Gatsby",
-      "description": "A classic American novel",
-      "coverImageUrl": "https://example.com/gatsby.jpg",
+      "id": "1",
+      "title": "Sample Book",
+      "description": "A sample book description",
+      "coverImageUrl": "https://via.placeholder.com/300x400",
       "status": "available",
       "owner": "user2",
-      "borrower": null
+      "borrower": null,
+      "available": false
     }
   ],
   "users": [
     {
       "id": "user1",
-      "name": "John Doe",
-      "email": "john@example.com"
+      "name": "Current User"
     },
     {
       "id": "user2",
-      "name": "Jane Smith",
-      "email": "jane@example.com"
+      "name": "Book Owner"
     }
   ],
   "requests": [
     {
-      "id": "0f75",
-      "bookId": "b13",
-      "requesterId": "user1",
-      "status": "Pending"
-    },
-    {
-      "id": "c74e",
+      "id": "req_1753461505659",
       "bookId": "b16",
       "requesterId": "user1",
-      "status": "Pending"
+      "status": "Pending",
+      "bookTitle": "Moby Dick",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T16:38:25.660Z"
+    },
+    {
+      "id": "req_1753461638565",
+      "bookId": "b10",
+      "requesterId": "user1",
+      "status": "Pending",
+      "bookTitle": "The Lord of the Rings",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T16:40:38.565Z"
+    },
+    {
+      "id": "req_1753461697888",
+      "bookId": "b10",
+      "requesterId": "user1",
+      "status": "Pending",
+      "bookTitle": "The Lord of the Rings",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T16:41:37.888Z"
+    },
+    {
+      "id": "req_1753461701539",
+      "bookId": "b16",
+      "requesterId": "user1",
+      "status": "Pending",
+      "bookTitle": "Moby Dick",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T16:41:41.539Z"
+    },
+    {
+      "id": "req_1753461773303",
+      "bookId": "1",
+      "requesterId": "user1",
+      "status": "Accepted",
+      "bookTitle": "Sample Book",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T16:42:53.303Z"
+    },
+    {
+      "id": "req_1753462313683",
+      "bookId": "1",
+      "requesterId": "user1",
+      "status": "Accepted",
+      "bookTitle": "Sample Book",
+      "requesterName": "Current User",
+      "createdAt": "2025-07-25T16:51:53.683Z"
     }
   ]
 }

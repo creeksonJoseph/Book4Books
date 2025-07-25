@@ -51,21 +51,52 @@ h1, h2, h3 {
   text-decoration: underline;
 }
 
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.book-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
 .book-card img {
   width: 100%;
-  aspect-ratio: 2./ 3;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .book-card h3 {
   margin: 1rem 0 0.5rem 0;
   color: #ffffff;
+  font-size: 1.2rem;
 }
 
 .book-card p {
-  color: #666;
+  color: #e5e5e5;
   margin-bottom: 1rem;
+  font-style: italic;
+  fontSize: 0.85rem;
 }
 
 .book-info {

@@ -24,7 +24,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   margin-bottom: 1rem;
-  animation: pulse 2s infinite;
+  /* Remove animation */
 }
 
 @keyframes pulse {
@@ -64,12 +64,17 @@
   }
 }
 
+.book-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .book-card {
   background: white;
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
+  /* Remove transition */
 }
 
 .book-card:hover {
@@ -89,7 +94,7 @@
   border-radius: 0.75rem;
   border: 2px solid rgba(52, 211, 153, 0.6);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  transition: all 0.5s ease;
+  /* Remove transition */
 }
 
 .book-card:hover .book-image {
@@ -137,6 +142,7 @@
 .book-card-link {
   text-decoration: none;
   color: inherit;
+  flex: 1;
 }
 
 .book-card-link:hover {
@@ -162,4 +168,42 @@
 .status-badge.borrowed {
   background-color: #f59e0b;
   color: white;
+}
+
+.book-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.action-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.borrow-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.borrow-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.return-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.return-btn:hover {
+  background-color: #047857;
+  transform: translateY(-2px);
 }
