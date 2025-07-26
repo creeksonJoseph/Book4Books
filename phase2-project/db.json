@@ -103,6 +103,12 @@
       "email": "mannomedy@gmail.com",
       "password": "12345678",
       "id": "1wo9Pbz"
+    },
+    {
+      "id": "2d29",
+      "username": "alphachronicles",
+      "email": "alpha@gmail.com",
+      "password": "1234"
     }
   ],
   "requests": [
