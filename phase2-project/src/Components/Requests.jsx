@@ -3,51 +3,42 @@ import { API_URL } from "../App";
 import bg from "../assets/creative-composition-world-book-day.jpg";
 import "./Requests.css";
 
-function Requests() {
+export default function Requests() {
   const [requests, setRequests] = useState([]);
   const [books, setBooks] = useState([]);
   const [users, setUsers] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const [booksRes, requestsRes, usersRes] = await Promise.all([
-        fetch(`${API_URL}books`).then((r) => r.json()),
-        fetch(`${API_URL}requests`).then((r) => r.json()),
-        fetch(`${API_URL}users`).then((r) => r.json()),
-      ]);
-
-      setBooks(booksRes);
-      setRequests(requestsRes);
-      setUsers(usersRes);
-    } catch (error) {
-      console.error("Error loading data:", error);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
-    
-    const interval = setInterval(fetchData, 2000);
-    
+    fetchAllData();
+    const interval = setInterval(fetchAllData, 2000);
     return () => clearInterval(interval);
   }, []);
 
-  const getUserName = (id) => {
-    const user = users.find((u) => String(u.id) === String(id));
-    return user ? user.name : `User ${id}`;
+  const fetchAllData = async () => {
+    try {
+      const [booksRes, requestsRes, usersRes] = await Promise.all([
+        fetch(`${API_URL}books`).then((res) => res.json()),
+        fetch(`${API_URL}requests`).then((res) => res.json()),
+        fetch(`${API_URL}users`).then((res) => res.json()),
+      ]);
+      setBooks(booksRes);
+      setRequests(requestsRes);
+      setUsers(usersRes);
+    } catch (err) {
+      console.error("Fetching failed:", err);
+    }
   };
 
-  const handleToggleStatus = async (requestId, bookId, currentStatus) => {
-    let newStatus;
-    let bookAvailable;
+  const getUserName = (id) => {
+    const user = users.find((u) => String(u.id) === String(id));
+    return user?.name || user?.username || `User ${id}`;
+  };
 
-    if (currentStatus === "Pending" || currentStatus === "Declined") {
-      newStatus = "Accepted";
-      bookAvailable = false;
-    } else if (currentStatus === "Accepted") {
-      newStatus = "Declined";
-      bookAvailable = true;
-    }
+  const handleToggle = async (requestId, bookId, currentStatus) => {
+    const isAccepting =
+      currentStatus === "Pending" || currentStatus === "Declined";
+    const newStatus = isAccepting ? "Accepted" : "Declined";
+    const bookAvailable = !isAccepting;
 
     try {
       await Promise.all([
@@ -63,77 +54,57 @@ function Requests() {
         }),
       ]);
 
+      // Update local state after success
       setRequests((prev) =>
-        prev.map((req) =>
-          req.id === requestId ? { ...req, status: newStatus } : req
-        )
+        prev.map((r) => (r.id === requestId ? { ...r, status: newStatus } : r))
       );
       setBooks((prev) =>
-        prev.map((book) =>
-          book.id === bookId ? { ...book, available: bookAvailable } : book
+        prev.map((b) =>
+          b.id === bookId ? { ...b, available: bookAvailable } : b
         )
       );
-    } catch (error) {
-      console.error("Error updating status:", error);
+    } catch (err) {
+      console.error("Failed to toggle status:", err);
     }
   };
 
   return (
-    <div className="requests-container" style={{ backgroundImage: `url(${bg})` }}>
+    <div
+      className="requests-container"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
       <h1 className="requests-title">Book Requests</h1>
 
       {requests.length === 0 ? (
-        <div className="no-requests">
-          <p className="no-requests-text">
-            No exchange requests at the moment.
-          </p>
-        </div>
+        <p className="no-requests-text">No exchange requests right now.</p>
       ) : (
         <div className="requests-list">
-          {requests.map((request) => {
-            const book = books.find(
-              (b) => String(b.id) === String(request.bookId)
-            );
+          {requests.map((req) => {
+            const book = books.find((b) => String(b.id) === String(req.bookId));
             if (!book) return null;
 
-            const requesterName = getUserName(request.requesterId);
-
             return (
-              <div key={request.id} className="request-card">
+              <div key={req.id} className="request-card">
                 <p className="request-text">
                   <span className="requester-name">
-                    {requesterName}
+                    {getUserName(req.requesterId)}
                   </span>{" "}
                   wants to borrow{" "}
                   <span className="book-title">"{book.title}"</span>.
                 </p>
-                <p className="request-status">
-                  Status: {request.status}
-                </p>
+                <p className="request-status">Status: {req.status}</p>
 
                 <div className="request-actions">
-                  {(request.status === "Pending" ||
-                    request.status === "Declined") && (
-                    <button
-                      onClick={() =>
-                        handleToggleStatus(request.id, book.id, request.status)
-                      }
-                      className="accept-button"
-                    >
-                      Accept
-                    </button>
-                  )}
-                  {(request.status === "Pending" ||
-                    request.status === "Accepted") && (
-                    <button
-                      onClick={() =>
-                        handleToggleStatus(request.id, book.id, request.status)
-                      }
-                      className="decline-button"
-                    >
-                      Decline
-                    </button>
-                  )}
+                  <button
+                    className={
+                      req.status === "Accepted"
+                        ? "decline-button"
+                        : "accept-button"
+                    }
+                    onClick={() => handleToggle(req.id, book.id, req.status)}
+                  >
+                    {req.status === "Accepted" ? "Decline" : "Accept"}
+                  </button>
                 </div>
               </div>
             );
@@ -143,5 +114,3 @@ function Requests() {
     </div>
   );
 }
-
-export default Requests;

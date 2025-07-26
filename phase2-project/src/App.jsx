@@ -15,12 +15,12 @@ import Signup from "./Components/SignUp";
 
 import "./App.css";
 
-export const API_URL = "http://localhost:3001/";
+export const API_URL = "https://phase-2-project-server-24u0.onrender.com/";
 function App() {
   const [books, setBooks] = useState([]);
   const [showSplash, setShowSplash] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const currentUser = { id: "user1" };
 
   useEffect(() => {
@@ -78,7 +78,10 @@ function App() {
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/requests" element={<Requests />} />
         <Route path="/book/:id" element={<BookPage />} />
-        <Route path="/mybooks" element={<BookPlaylist currentUser={currentUser} />} />
+        <Route
+          path="/mybooks"
+          element={<BookPlaylist currentUser={currentUser} />}
+        />
         <Route
           path="/exchange"
           element={<ExchangePage currentUser={currentUser} />}

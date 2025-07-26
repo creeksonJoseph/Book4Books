@@ -9,7 +9,7 @@
       "author": "J.R.R. Tolkien",
       "contacts": "user1@email.com",
       "available": false,
-      "ownerId": "user1"
+      "ownerId": "1"
     },
     {
       "id": "2",
@@ -20,7 +20,7 @@
       "author": "George Orwell",
       "contacts": "user2@email.com",
       "available": true,
-      "ownerId": "user2"
+      "ownerId": "2"
     },
     {
       "id": "3",
@@ -91,21 +91,21 @@
   ],
   "users": [
     {
-      "id": "user1",
+      "id": "1",
       "name": "Current User"
     },
     {
-      "id": "user2",
+      "id": "2",
       "name": "Book Owner"
     },
     {
+      "id": "3",
       "username": "medy",
       "email": "mannomedy@gmail.com",
-      "password": "12345678",
-      "id": "1wo9Pbz"
+      "password": "12345678"
     },
     {
-      "id": "2d29",
+      "id": "4",
       "username": "alphachronicles",
       "email": "alpha@gmail.com",
       "password": "1234"
@@ -113,22 +113,31 @@
   ],
   "requests": [
     {
-      "id": "req_1753461505659",
-      "bookId": "b16",
-      "requesterId": "user1",
+      "id": "req_1",
+      "bookId": "8",
+      "requesterId": "1",
       "status": "Pending",
-      "bookTitle": "Moby Dick",
+      "bookTitle": "To Kill a Mockingbird",
       "requesterName": "Current User",
       "createdAt": "2025-07-25T16:38:25.660Z"
     },
     {
-      "id": "req_1753464007579",
-      "bookId": "b4",
-      "requesterId": "user1",
+      "id": "req_2",
+      "bookId": "4",
+      "requesterId": "1",
       "status": "Accepted",
-      "bookTitle": "To Kill a Mockingbird",
+      "bookTitle": "The Alchemist",
       "requesterName": "Current User",
       "createdAt": "2025-07-25T17:20:07.579Z"
+    },
+    {
+      "id": "req_3",
+      "bookId": "2",
+      "requesterId": "3",
+      "status": "Declined",
+      "bookTitle": "1984",
+      "requesterName": "medy",
+      "createdAt": "2025-07-25T18:10:00.000Z"
     }
   ],
   "borrowedBooks": []

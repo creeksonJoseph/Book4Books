@@ -16,7 +16,6 @@ function Login({ setIsLoggedIn }) {
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoggingIn(true);
@@ -29,11 +28,7 @@ function Login({ setIsLoggedIn }) {
     }
 
     try {
- HEAD
-      onLogin?.(formData);
-      // Fake login logic
       setIsLoggedIn(true);
-
       navigate("/dashboard");
     } catch (err) {
       setError("Login failed. Please try again.");
