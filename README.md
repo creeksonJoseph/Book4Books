@@ -20,28 +20,11 @@
 - JavaScript, HTML5, and CSS3
 - JSON Server for mock backend API
 
-## Folder Structure
-
-```
-src/
-├── components/
-│   ├── Navbar.jsx
-│   ├── SplashScreen.jsx
-│   ├── Dashboard.jsx
-│   ├── Login.jsx
-│   ├── SignUp.jsx
-│   ├── AddBook.jsx
-│   ├── Requests.jsx
-│   ├── BookPage.jsx
-│   ├── BookDetails.jsx
-│   ├── BookPlaylist.jsx
-│   └── ExchangePage.jsx
-├── App.jsx
-├── App.css
-└── index.js
-```
-
 ## Getting Started
+
+### Live deployment
+
+You can view the app deployed at: -[Book-4-Books](https://phase-2-project-group-kappa.vercel.app/)
 
 ### Prerequisites
 
@@ -118,9 +101,15 @@ This app uses a local JSON server. All data operations (GET, POST, PATCH, DELETE
 
 Contributions are welcome. If you would like to improve the app, feel free to fork the repository and submit a pull request.
 
-The work has been perfectly made and designed thanks to the efforts of collaborators @Abdulkadir Ahmed, @Creekson Joseph, and @Pascal Denzel.
- https://marvelous-lolly-50281b.netlify.app/ deployed link!!
- password is: My-Drop-Site
+The work has been perfectly made and designed thanks to the efforts of collaborators
+
+-@[Abdulkadir Ahmed](https://github.com/medymanno)  
+-@[Creekson Joseph](https://github.com/creeksonJoseph)  
+-@[Pascal Denzel](https://github.com/PASCALD3NZEL)
+
+## NOTE
+
+This is an entire frontend application with just a mock json backend.Backend integration to be done soon.
 
 ## License
 
