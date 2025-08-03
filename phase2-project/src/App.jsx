@@ -16,13 +16,25 @@ import Signup from "./Components/SignUp";
 import "./App.css";
 
 export const API_URL = "https://phase-2-project-server-24u0.onrender.com/";
+
 function App() {
   const [books, setBooks] = useState([]);
   const [showSplash, setShowSplash] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // 🔹 Detect mobile
+
   const currentUser = { id: "user1" };
 
+  // 🔹 Detect small screen
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize(); // check immediately
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // 🔹 Fetch books
   useEffect(() => {
     fetch("/db.json")
       .then((response) => response.json())
@@ -36,16 +48,18 @@ function App() {
       });
   }, []);
 
+  // 🔹 Splash screen timeout (desktop only)
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 3000);
+    if (!isMobile) {
+      const timer = setTimeout(() => setShowSplash(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
 
-    return () => clearTimeout(timer);
-  }, []);
+  // 🔹 Always show splash screen on mobile
+  if (isMobile || showSplash) return <SplashScreen />;
 
-  if (showSplash) return <SplashScreen />;
-
+  // 🔹 Show loading screen
   if (isLoading) {
     return (
       <div

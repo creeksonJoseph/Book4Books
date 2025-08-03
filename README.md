@@ -21,9 +21,12 @@
 - JSON Server for mock backend API
 
 ## Getting Started
+
+
 ### Live deployment
 You can view the app deployed at:
 -[Book-4-Books](https://phase-2-project-group-kappa.vercel.app/)
+
 
 ### Prerequisites
 
@@ -105,6 +108,7 @@ The work has been perfectly made and designed thanks to the efforts of collabora
 -@[Creekson Joseph](https://github.com/creeksonJoseph)
 -@[Pascal Denzel](https://github.com/PASCALD3NZEL)
 ## NOTE
+
 This is an entire frontend application with just a mock json backend.Backend integration to be done soon.
 
 ## License
